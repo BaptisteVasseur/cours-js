@@ -1,0 +1,59 @@
+<html lang="fr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur d'idées de recettes</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12.8 5.4c-.4-.4-1.1-.4-1.5 0L3.4 13.3c-.4.4-.4 1.1 0 1.5l7.9 7.9c.4.4 1.1.4 1.5 0l7.9-7.9c.4-.4.4-1.1 0-1.5L12.8 5.4zM12 2l9.9 9.9c1.2 1.2 1.2 3.1 0 4.2l-7.9 7.9c-1.2 1.2-3.1 1.2-4.2 0l-7.9-7.9c-1.2-1.2-1.2-3.1 0-4.2L12 2z"></path>
+                </svg>
+                <h1>Mes Recettes</h1>
+            </div>
+            <nav>
+                <a href="index.html">Recettes</a>
+                <a href="generate-recipes.html" id="generate-recipe">Générer une recette</a>
+                <a href="create-recipe.html">Créer</a>
+                <a href="shopping-list.html" class="active btn-shopping-list">Liste de courses</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="idea-list-page">
+            <div class="add-idea-item-section">
+                <input type="text" id="new-item-name" placeholder="Nom de l'ingrédient">
+                <button id="add-item" class="button-primary">Ajouter</button>
+            </div>
+
+            <h2 class="idea-list-title">Liste des ingrédients</h2>
+            <div id="idea-ingredient-list" class="idea-ingredient-list"><div class="idea-item"><span>Pomme</span><button class="remove-idea-item">×</button></div><div class="idea-item"><span>Farine</span><button class="remove-idea-item">×</button></div><div class="idea-item"><span>Oeuf</span><button class="remove-idea-item">×</button></div><div class="idea-item"><span>Lait</span><button class="remove-idea-item">×</button></div></div>
+
+            <h2 class="idea-list-title">Liste des recettes</h2>
+            <div id="idea-list" class="idea-list" style="display: block;"><div class="recipe-idea">
+                            <h3>Gâteau aux pommes moelleux (Facile)</h3>
+                            <p>Durée: 50 minutes</p>
+                        </div><div class="recipe-idea">
+                            <h3>Crêpes aux pommes rapides (Facile)</h3>
+                            <p>Durée: 20 minutes</p>
+                        </div><div class="recipe-idea">
+                            <h3>Muffins Pomme-Choco pour enfants (Facile)</h3>
+                            <p>Durée: 35 minutes</p>
+                        </div><div class="recipe-idea">
+                            <h3>Soufflé de pommes et lait (Intermédiaire)</h3>
+                            <p>Durée: 60 minutes</p>
+                        </div><div class="recipe-idea">
+                            <h3>Tarte aux pommes et crème pâtissière (Difficile)</h3>
+                            <p>Durée: 90 minutes</p>
+                        </div></div>
+
+            <button id="generate-recipe-button" class="button-primary">
+                <span id="generate-text">Générer des idées de recettes</span>
+                <span id="generate-loader" class="hidden loader"></span>
+            </button>
+        </div>
+    </main>
+ </body></html>

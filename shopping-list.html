@@ -1,0 +1,82 @@
+<html lang="fr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste de Courses</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12.8 5.4c-.4-.4-1.1-.4-1.5 0L3.4 13.3c-.4.4-.4 1.1 0 1.5l7.9 7.9c.4.4 1.1.4 1.5 0l7.9-7.9c.4-.4.4-1.1 0-1.5L12.8 5.4zM12 2l9.9 9.9c1.2 1.2 1.2 3.1 0 4.2l-7.9 7.9c-1.2 1.2-3.1 1.2-4.2 0l-7.9-7.9c-1.2-1.2-1.2-3.1 0-4.2L12 2z"></path>
+                </svg>
+                <h1>Mes Recettes</h1>
+            </div>
+            <nav>
+                <a href="index.html">Recettes</a>
+                <a href="generate-recipes.html" id="generate-recipe">Générer une recette</a>
+                <a href="create-recipe.html">Créer</a>
+                <a href="shopping-list.html" class="active btn-shopping-list">Liste de courses</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="shopping-list-page">
+            <!-- Section des recettes sélectionnées -->
+            <div class="selected-recipes-section">
+                <h2>Recettes sélectionnées</h2>
+                <div id="selected-recipes-container" class="selected-recipes-grid"><div class="selected-recipe-card">
+                <span>Pate Bolognaise</span>
+                <button class="button-secondary remove-recipe" data-id="1740386176791">
+                    Retirer
+                </button>
+            </div><div class="selected-recipe-card">
+                <span>Couscous</span>
+                <button class="button-secondary remove-recipe" data-id="1740386257522">
+                    Retirer
+                </button>
+            </div></div>
+            </div>
+
+            <!-- Section de la liste de courses -->
+            <div class="shopping-list-section">
+                <div class="shopping-list-header">
+                    <h2>Liste de courses</h2>
+                    <div class="shopping-list-actions">
+                        <button id="generate-list" class="button-primary">Générer la liste</button>
+                        <button id="clear-list" class="button-secondary">Effacer la liste</button>
+                    </div>
+                </div>
+
+                <!-- Formulaire pour ajouter un nouvel élément -->
+                <div class="add-item-section">
+                    <input type="text" id="new-item-name" placeholder="Nom de l'ingrédient">
+                    <input type="text" id="new-item-quantity" placeholder="Quantité">
+                    <button id="add-item" class="button-primary">Ajouter</button>
+                </div>
+
+                <div id="shopping-list" class="shopping-list"><div class="shopping-item">
+                    <input type="checkbox" class="shopping-item-checkbox">
+                    <div class="shopping-item-content">
+                        <span class="shopping-item-name">Pates</span>
+                        <span class="shopping-item-quantity">10 × <button class="button-secondary remove-item">×</button></span>
+                    </div>
+                </div><div class="shopping-item">
+                    <input type="checkbox" class="shopping-item-checkbox">
+                    <div class="shopping-item-content">
+                        <span class="shopping-item-name">Tomate</span>
+                        <span class="shopping-item-quantity">5 × <button class="button-secondary remove-item">×</button></span>
+                    </div>
+                </div><div class="shopping-item">
+                    <input type="checkbox" class="shopping-item-checkbox">
+                    <div class="shopping-item-content">
+                        <span class="shopping-item-name">Pomme</span>
+                        <span class="shopping-item-quantity">2 × <button class="button-secondary remove-item">×</button></span>
+                    </div>
+                </div></div>
+            </div>
+        </div>
+    </main>
+ </body></html>

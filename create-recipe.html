@@ -1,0 +1,103 @@
+<html lang="fr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une Recette</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12.8 5.4c-.4-.4-1.1-.4-1.5 0L3.4 13.3c-.4.4-.4 1.1 0 1.5l7.9 7.9c.4.4 1.1.4 1.5 0l7.9-7.9c.4-.4.4-1.1 0-1.5L12.8 5.4zM12 2l9.9 9.9c1.2 1.2 1.2 3.1 0 4.2l-7.9 7.9c-1.2 1.2-3.1 1.2-4.2 0l-7.9-7.9c-1.2-1.2-1.2-3.1 0-4.2L12 2z"></path>
+                </svg>
+                <h1>Mes Recettes</h1>
+            </div>
+            <nav>
+                <a href="index.html">Recettes</a>
+                <a href="generate-recipes.html" id="generate-recipe">Générer une recette</a>
+                <a href="create-recipe.html" class="active">Créer</a>
+                <a href="shopping-list.html" class="btn-shopping-list">Liste de courses</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="create-recipe-container">
+            <h2>Créer une nouvelle recette</h2>
+            <form id="recipe-form" class="modern-form">
+                <div class="form-section">
+                    <div class="image-upload-container">
+                        <input type="file" id="recipe-image" accept="image/*" class="hidden">
+                        <img src="" alt="Aperçu" id="preview-image" class="hidden">
+                        <div class="upload-placeholder">
+                            <svg class="upload-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span>Ajouter une photo de votre recette</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <input type="text" id="recipe-name" required="" placeholder=" ">
+                        <label for="recipe-name">Nom de la recette</label>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="recipe-category" required="">
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="Entrée">Entrée</option>
+                            <option value="Plat">Plat</option>
+                            <option value="Dessert">Dessert</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Ingrédients</h3>
+                    <div id="ingredients-container">
+                        <div class="ingredient-row">
+                            <div class="form-group">
+                                <input type="text" class="ingredient-name" required="" placeholder=" ">
+                                <label>Ingrédient</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="ingredient-quantity" required="" placeholder=" ">
+                                <label>Quantité</label>
+                            </div>
+                            <button type="button" class="icon-button remove-ingredient">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-button" id="add-ingredient">
+                        <span>+</span> Ajouter un ingrédient
+                    </button>
+                </div>
+
+                <div class="form-section">
+                    <h3>Étapes de préparation</h3>
+                    <div id="steps-container">
+                        <div class="step-row">
+                            <div class="form-group">
+                                <textarea class="step-description" required="" placeholder=" "></textarea>
+                                <label>Décrivez l'étape</label>
+                            </div>
+                            <button type="button" class="icon-button remove-step">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-button" id="add-step">
+                        <span>+</span> Ajouter une étape
+                    </button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="button button-cancel">Annuler</button>
+                    <button type="submit" class="button button-submit">Créer la recette</button>
+                </div>
+            </form>
+        </div>
+    </main>
+ </body></html>

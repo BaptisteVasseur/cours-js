@@ -11,6 +11,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            padding: 0 40px;
         }
 
         h1 {
@@ -43,27 +44,44 @@
         button:active {
             transform: scale(0.95);
         }
+
+        [data-counter] {
+            background: lightgray;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
 
-<div style="text-align: center">
-    <h1 id="title">Compteur 1 : 0</h1>
+<div class="counter-container" style="text-align: center" data-counter="1">
+    <h1 class="title">Compteur 1 : 0</h1>
     <div class="button-container">
-        <button id="increment-button">Incrémenter</button>
-        <button id="decrement-button">Décrémenter</button>
-        <button id="reset-button">Réinitialiser</button>
+        <button class="increment-button">Incrémenter</button>
+        <button class="decrement-button">Décrémenter</button>
+        <button class="reset-button">Réinitialiser</button>
     </div>
 </div>
 
-<!--<div style="text-align: center; margin-top: 50px;">-->
-<!--    <h1 id="title">Compteur 2 : 0</h1>-->
-<!--    <div class="button-container">-->
-<!--        <button id="increment-button">Incrémenter</button>-->
-<!--        <button id="decrement-button">Décrémenter</button>-->
-<!--        <button id="reset-button">Réinitialiser</button>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="counter-container" style="text-align: center" data-counter="2">
+    <h1 class="title">Compteur 2 : 0</h1>
+    <div class="button-container">
+        <button class="increment-button">Incrémenter</button>
+        <button class="decrement-button">Décrémenter</button>
+        <button class="reset-button">Réinitialiser</button>
+    </div>
+</div>
+
+<div  class="counter-container" style="text-align: center" data-counter="3">
+    <h1 class="title">Compteur 3 : 0</h1>
+    <div class="button-container">
+        <button class="increment-button">Incrémenter</button>
+        <button class="decrement-button">Décrémenter</button>
+        <button class="reset-button">Réinitialiser</button>
+    </div>
+</div>
 
 <script src="counter.js"></script>
 </body>

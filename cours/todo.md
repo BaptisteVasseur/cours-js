@@ -18,6 +18,9 @@
 ## Partie 3 (avancée) :
 
 - Avoir plusieurs compteurs sur la page (getElementById -> querySelector)
+- Pouvoir ajouter des compteurs directement en Javascript
+- Pouvoir selectionner/supprimer des compteurs 
+- Pouvoir sauvegarder ces compteurs dans le navigateur
 
 
 # Cours 2 : Todolist 

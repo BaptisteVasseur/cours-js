@@ -23,20 +23,23 @@
 - Pouvoir sauvegarder ces compteurs dans le navigateur
 
 
-# Cours 2 : Todolist 
+# Cours 2 : Liste de course  
 
 ## Partie 1 :
 
-- Récupérer le champ input et le bouton pour ajouter une tâche
-- Ajouter une tâche à la liste
-- Supprimer une tâche de la liste
+- Récupérer le nom de l'ingrédient et la quantité lors du click sur le bouton "Ajouter"
+- Ajouter l'ingrédient et la quantité à la liste de course
+- Modifier l'affichage en conséquence
+- Supprimer un ingrédient de la liste de course
+- Modifier l'affichage en conséquence
 
 ## Partie 2 :
 
-- Sauvegarder les tâches dans le localStorage
-- Récupérer les tâches du localStorage
-- Supprimer toutes les tâches
+- Sauvegarder les ingrédients dans le localStorage pour garder les ingrédients après un refresh de la page
+- Récupérer les ingrédients du localStorage pour les afficher lors du chargement de la page
+- Effacer tous les ingrédients de la liste de course
 
 ## Partie 3 (avancée) :
 
-- Filtrer les tâches (toutes, terminées, non terminées)
+- Filtrer les ingrédients (cocher/décocher) pour les afficher ou non
+- Générer une liste de course à partir du nom d'une recette (en utilisant une API d'intelligence artificielle)

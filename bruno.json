@@ -1,0 +1,642 @@
+{
+  "name": "JS Fetch API",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "API Entreprise Auto Entreprise",
+      "seq": 5,
+      "request": {
+        "url": "https://recherche-entreprises.api.gouv.fr/search?q=Vasseur&minimal=true&include=siege%2Cmatching_etablissements&page=1&per_page=10",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "q",
+            "value": "Vasseur",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "minimal",
+            "value": "true",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "include",
+            "value": "siege%2Cmatching_etablissements",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "page",
+            "value": "1",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "per_page",
+            "value": "10",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "activite_principale",
+            "value": "01.12Z%2C28.15Z",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "categorie_entreprise",
+            "value": "PME",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "code_collectivite_territoriale",
+            "value": "75C",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "code_postal",
+            "value": "38540%2C38189",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "code_commune",
+            "value": "01247%2C01111",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "departement",
+            "value": "02%2C89",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "region",
+            "value": "11%2C76",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "epci",
+            "value": "200058519%2C248100737",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_convention_collective",
+            "value": "1090",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_finess",
+            "value": "010003853",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_rge",
+            "value": "8611M10D109",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_uai",
+            "value": "0022004T",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "nature_juridique",
+            "value": "7344%2C6544",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "section_activite_principale",
+            "value": "A%2CJ%2CU",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "tranche_effectif_salarie",
+            "value": "NN%2C00%2C01",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "nom_personne",
+            "value": "Dupont",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "prenoms_personne",
+            "value": "Monsieur",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "date_naissance_personne_min",
+            "value": "1960-01-01",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "date_naissance_personne_max",
+            "value": "1990-01-01",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "ca_min",
+            "value": "100000",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "ca_max",
+            "value": "100000",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "resultat_net_min",
+            "value": "100000",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "resultat_net_max",
+            "value": "100000",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "limite_matching_etablissements",
+            "value": "10",
+            "type": "query",
+            "enabled": false
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "API Entreprise",
+      "seq": 4,
+      "request": {
+        "url": "https://recherche-entreprises.api.gouv.fr/search?q=ESGI&ca_min=100000&minimal=true&page=1&per_page=10",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "q",
+            "value": "ESGI",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "ca_min",
+            "value": "100000",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "minimal",
+            "value": "true",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "page",
+            "value": "1",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "per_page",
+            "value": "10",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "activite_principale",
+            "value": "01.12Z%2C28.15Z",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "categorie_entreprise",
+            "value": "PME",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "code_collectivite_territoriale",
+            "value": "75C",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "code_postal",
+            "value": "38540%2C38189",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "code_commune",
+            "value": "01247%2C01111",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "departement",
+            "value": "02%2C89",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "region",
+            "value": "11%2C76",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "epci",
+            "value": "200058519%2C248100737",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_convention_collective",
+            "value": "1090",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_finess",
+            "value": "010003853",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_rge",
+            "value": "8611M10D109",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "id_uai",
+            "value": "0022004T",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "nature_juridique",
+            "value": "7344%2C6544",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "section_activite_principale",
+            "value": "A%2CJ%2CU",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "tranche_effectif_salarie",
+            "value": "NN%2C00%2C01",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "nom_personne",
+            "value": "Dupont",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "prenoms_personne",
+            "value": "Monsieur",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "date_naissance_personne_min",
+            "value": "1960-01-01",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "date_naissance_personne_max",
+            "value": "1990-01-01",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "ca_max",
+            "value": "100000",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "resultat_net_min",
+            "value": "100000",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "resultat_net_max",
+            "value": "100000",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "limite_matching_etablissements",
+            "value": "10",
+            "type": "query",
+            "enabled": false
+          },
+          {
+            "name": "include",
+            "value": "siege%2Ccomplements",
+            "type": "query",
+            "enabled": false
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Adresse Gouv",
+      "seq": 2,
+      "request": {
+        "url": "https://api-adresse.data.gouv.fr/search/?q=242 Rue du Faubourg Saint-Antoine",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "q",
+            "value": "242 Rue du Faubourg Saint-Antoine",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Chat GPT Image",
+      "seq": 7,
+      "request": {
+        "url": "https://api.openai.com/v1/chat/completions",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Tu est une API utilisée par un site ecommerce de produits alimentaires / site de recette de cuisine. Tu est spécalisé dans la junk food, Tu est capable de générer des recettes de cuisine à partir d'ingrédients donnés. Tu est capable de répondre à des questions sur les recettes de cuisine. Tu est capable de donner des conseils sur la cuisine.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Donne moi le nom de la recette ainsi que la liste des ingrédients pour la recette suivante (chaque ingrédient doit avoir un name) :\"\n        },\n        {\n            \"type\": \"image_url\",\n            \"image_url\": {\n                \"url\": \"`data:image/jpeg;base64,XXXXXXXX\"\n            }\n        }\n    ],\n    \"response_format\": {\n        \"type\": \"json_schema\",\n        \"json_schema\": {\n            \"name\": \"plat\",\n            \"strict\": true,\n            \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"ingredients\": {\n                        \"type\": \"array\",\n                        \"items\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"name\": {\n                                    \"type\": \"string\"\n                                }\n                            },\n                            \"required\": [\n                                \"name\"\n                            ],\n                            \"additionalProperties\": false\n                        }\n                    },\n                    \"title\": {\n                        \"type\": \"string\"\n                    }\n                },\n                \"required\": [\n                    \"ingredients\",\n                    \"title\"\n                ],\n                \"additionalProperties\": false\n            }\n        }\n    }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "VOTRE_CLE_API_OPENAI_ICI"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Chat GPT",
+      "seq": 6,
+      "request": {
+        "url": "https://api.openai.com/v1/chat/completions",
+        "method": "POST",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "json",
+          "json": "{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n        {\n            \"role\": \"system\",\n            \"content\": \"Tu est une API utilisée par un site ecommerce de produits alimentaires / site de recette de cuisine. Tu est spécalisé dans la junk food, Tu est capable de générer des recettes de cuisine à partir d'ingrédients donnés. Tu est capable de répondre à des questions sur les recettes de cuisine. Tu est capable de donner des conseils sur la cuisine.\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"Donne mois une liste de 5 recette possibles avec les ingrédients suivants, précise dans le titre si c'est une recette facile/intermidiaire/difficile : Chocolat, Lait, Farine, Oeufs. Pour chaque recette tu dois me donner le title de la recette et sa duration approximative. J'aimerais que dans tes propositions de recettes, tu me donnes toujours une recette healthy, une recette rapide, une recette pour les enfants, une recette pour les adultes. Et un recette bien gourmande et calorique.\"\n        }\n    ],\n    \"response_format\": {\n        \"type\": \"json_schema\",\n        \"json_schema\": {\n            \"name\": \"recipe\",\n            \"strict\": true,\n            \"schema\": {\n                \"type\": \"object\",\n                \"properties\": {\n                    \"recipes\": {\n                        \"type\": \"array\",\n                        \"items\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"title\": {\n                                    \"type\": \"string\"\n                                },\n                                \"duration\": {\n                                    \"type\": \"integer\"\n                                }\n                            },\n                            \"required\": [\n                                \"title\",\n                                \"duration\"\n                            ],\n                            \"additionalProperties\": false\n                        }\n                    }\n                },\n                \"required\": [\n                    \"recipes\"\n                ],\n                \"additionalProperties\": false\n            }\n        }\n    }\n}",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {
+          "res": "const jsonResponse = JSON.parse(res.body.choices[0].message.content);\nconsole.log(jsonResponse);"
+        },
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "VOTRE_CLE_API_OPENAI_ICI"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Films",
+      "seq": 8,
+      "request": {
+        "url": "https://api.themoviedb.org/3/search/movie?query=Avatar&include_adult=false&language=fr-FR&page=1",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "query",
+            "value": "Avatar",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "include_adult",
+            "value": "false",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "language",
+            "value": "fr-FR",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "page",
+            "value": "1",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "bearer",
+          "bearer": {
+            "token": "VOTRE_CLE_API_THEMOVIEDB_ICI"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "M-t-o",
+      "seq": 3,
+      "request": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=48.8534&longitude=2.3488&current=temperature_2m,relative_humidity_2m,precipitation,rain,surface_pressure",
+        "method": "GET",
+        "headers": [],
+        "params": [
+          {
+            "name": "latitude",
+            "value": "48.8534",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "longitude",
+            "value": "2.3488",
+            "type": "query",
+            "enabled": true
+          },
+          {
+            "name": "current",
+            "value": "temperature_2m,relative_humidity_2m,precipitation,rain,surface_pressure",
+            "type": "query",
+            "enabled": true
+          }
+        ],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Pokemon",
+      "seq": 1,
+      "request": {
+        "url": "https://tyradex.app/api/v1/pokemon",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    }
+  ],
+  "environments": [],
+  "root": {
+    "request": {
+      "auth": {
+        "mode": "none"
+      }
+    },
+    "meta": {
+      "name": "JS Fetch API"
+    }
+  },
+  "brunoConfig": {
+    "version": "1",
+    "name": "JS Fetch API",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0.008226394653320312,
+    "filesCount": 9
+  }
+}

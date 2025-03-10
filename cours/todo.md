@@ -49,6 +49,7 @@
 
 ## Partie 1 :
 
+- Créer un compte sur ChatGPT, ajouter du crédit, créer une clé API et l'enregistrer dans un endroit sécurisé.
 - Récupérer le nom, la photo, la catégorie, les ingrédients (nom et quantité), les étapes de la recette et les sauvegarder dans un objet JSON dans le local storage
 
 ```json

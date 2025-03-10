@@ -30,16 +30,42 @@
 - Récupérer le nom de l'ingrédient et la quantité lors du click sur le bouton "Ajouter"
 - Ajouter l'ingrédient et la quantité à la liste de course
 - Modifier l'affichage en conséquence
-- Supprimer un ingrédient de la liste de course
+- Faire le bouton pour supprimer un ingrédient de la liste de course
+- Supprimer un ingrédient spécifique en cliquant sur le bouton supprimer de l'ingrédient
 - Modifier l'affichage en conséquence
 
 ## Partie 2 :
 
 - Sauvegarder les ingrédients dans le localStorage pour garder les ingrédients après un refresh de la page
 - Récupérer les ingrédients du localStorage pour les afficher lors du chargement de la page
-- Effacer tous les ingrédients de la liste de course
 
-## Partie 3 (avancée) :
+## Partie 3 (avancée, optionnelle pour l'instant) :
 
 - Filtrer les ingrédients (cocher/décocher) pour les afficher ou non
 - Générer une liste de course à partir du nom d'une recette (en utilisant une API d'intelligence artificielle)
+
+
+# Cours 3 : Ajouter des ingrédients
+
+## Partie 1 :
+
+- Récupérer le nom, la photo, la catégorie, les ingrédients (nom et quantité), les étapes de la recette et les sauvegarder dans un objet JSON dans le local storage
+
+```json
+{ 
+  "nom": "Nom de la recette",
+  "photo": "URL de la photo",
+  "categorie": "Catégorie de la recette",
+  "ingredients": [
+    {
+      "nom": "Nom de l'ingrédient",
+      "quantite": "Quantité de l'ingrédient"
+    }
+  ],
+  "etapes": [
+    "Etape 1",
+    "Etape 2",
+    "Etape 3"
+  ]
+}
+```

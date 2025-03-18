@@ -12,14 +12,14 @@
 - Ecouter le clavier pour incrément/décrémenter/reset le compteur
 - Empecher le compteur de descendre en dessous de 0
 - Changer la couleur du compter :
-  > Si compteur > 60 -> Afficher le compteur en orange
-  > Si compteur > 120 -> Afficher le compteur en rouge
+  > Si compteur > 10 -> Afficher le compteur en orange
+  > Si compteur > 20 -> Afficher le compteur en rouge
 
 ## Partie 3 (avancée) :
 
 - Avoir plusieurs compteurs sur la page (getElementById -> querySelector)
 - Pouvoir ajouter des compteurs directement en Javascript
-- Pouvoir selectionner/supprimer des compteurs
+- Pouvoir supprimer des compteurs
 - Pouvoir sauvegarder ces compteurs dans le navigateur
 
 

@@ -30,7 +30,7 @@
 - Récupérer le nom de l'ingrédient et la quantité lors du click sur le bouton "Ajouter"
 - Ajouter l'ingrédient et la quantité à la liste de course
 - Modifier l'affichage en conséquence
-- Faire le bouton pour supprimer un ingrédient de la liste de course
+- Faire le bouton pour supprimer tous les ingrédients de la liste de course
 - Supprimer un ingrédient spécifique en cliquant sur le bouton supprimer de l'ingrédient
 - Modifier l'affichage en conséquence
 
@@ -38,6 +38,7 @@
 
 - Sauvegarder les ingrédients dans le localStorage pour garder les ingrédients après un refresh de la page
 - Récupérer les ingrédients du localStorage pour les afficher lors du chargement de la page
+- Quand je charge la page, si la liste est vide, je veux par défaut les ingrédients suivants : "Pates" (quantité : 500g), Badoit (quantité : 2 bouteilles)
 
 ## Partie 3 (avancée, optionnelle pour l'instant) :
 

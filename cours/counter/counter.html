@@ -1,19 +1,27 @@
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <title>Compteur</title>
     <style>
+        .increment-button {
+            color: red;
+        }
+
+        .decrement-button {
+            color: green;
+        }
+
+        .reset-button {
+            color: blue;
+        }
+
+        #add-counter {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-
-<div class="counter-container">
-    <h1 class="title">Compteur 1 : 0</h1>
-    <div class="button-container">
-        <button class="increment-button">Incrémenter</button>
-        <button class="decrement-button">Décrémenter</button>
-        <button class="reset-button">Réinitialiser</button>
-    </div>
-</div>
-
+<button id="add-counter">Ajouter un compteur</button>
+<script src="counter.js"></script>
 </body>
 </html>

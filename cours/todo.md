@@ -45,28 +45,16 @@
 - Générer une liste de course à partir du nom d'une recette (en utilisant une API d'intelligence artificielle)
 
 
-# Cours 3 : Ajouter des ingrédients
+# Cours 3 : Ajouter des recettes / Les afficher sur la page d'accueil
 
-## Partie 1 :
+- Récupérer chaque input sur la page de création d'une recette et sauvegarder la recette créée dans le localStorage. (Il faut sauvegarder dans le localStorage un tableau de recette)
+- Gérer les cas ou on veut ajouter plusieurs ingrédients/etapes de preparation par recette
 
-- Créer un compte sur ChatGPT, ajouter du crédit, créer une clé API et l'enregistrer dans un endroit sécurisé.
-- Récupérer le nom, la photo, la catégorie, les ingrédients (nom et quantité), les étapes de la recette et les sauvegarder dans un objet JSON dans le local storage
+> Une recette doit être sauvegardée sous le format json (avec un objet)
 
-```json
-{ 
-  "nom": "Nom de la recette",
-  "photo": "URL de la photo",
-  "categorie": "Catégorie de la recette",
-  "ingredients": [
-    {
-      "nom": "Nom de l'ingrédient",
-      "quantite": "Quantité de l'ingrédient"
-    }
-  ],
-  "etapes": [
-    "Etape 1",
-    "Etape 2",
-    "Etape 3"
-  ]
-}
-```
+- Afficher les recettes sur la page d'accueil 
+
+
+# Cours 4 : Générer une recette avec l'IA
+
+// TODO

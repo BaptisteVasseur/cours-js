@@ -12,14 +12,14 @@
 - Ecouter le clavier pour incrément/décrémenter/reset le compteur
 - Empecher le compteur de descendre en dessous de 0
 - Changer la couleur du compter :
-  > Si compteur > 10 -> Afficher le compteur en orange
-  > Si compteur > 20 -> Afficher le compteur en rouge
+  > Si compteur > 60 -> Afficher le compteur en orange
+  > Si compteur > 120 -> Afficher le compteur en rouge
 
 ## Partie 3 (avancée) :
 
 - Avoir plusieurs compteurs sur la page (getElementById -> querySelector)
 - Pouvoir ajouter des compteurs directement en Javascript
-- Pouvoir supprimer des compteurs
+- Pouvoir selectionner/supprimer des compteurs
 - Pouvoir sauvegarder ces compteurs dans le navigateur
 
 
@@ -30,7 +30,7 @@
 - Récupérer le nom de l'ingrédient et la quantité lors du click sur le bouton "Ajouter"
 - Ajouter l'ingrédient et la quantité à la liste de course
 - Modifier l'affichage en conséquence
-- Faire le bouton pour supprimer tous les ingrédients de la liste de course
+- Faire le bouton pour supprimer un ingrédient de la liste de course
 - Supprimer un ingrédient spécifique en cliquant sur le bouton supprimer de l'ingrédient
 - Modifier l'affichage en conséquence
 
@@ -38,7 +38,6 @@
 
 - Sauvegarder les ingrédients dans le localStorage pour garder les ingrédients après un refresh de la page
 - Récupérer les ingrédients du localStorage pour les afficher lors du chargement de la page
-- Quand je charge la page, si la liste est vide, je veux par défaut les ingrédients suivants : "Pates" (quantité : 500g), Badoit (quantité : 2 bouteilles)
 
 ## Partie 3 (avancée, optionnelle pour l'instant) :
 
@@ -46,22 +45,28 @@
 - Générer une liste de course à partir du nom d'une recette (en utilisant une API d'intelligence artificielle)
 
 
-# Cours 3 : Ajouter des ingrédients
+# Cours 3 : Ajouter des recettes / Les afficher sur la page d'accueil
 
-## Partie 1 :
+- Rendre la création des ingrédients dynamique sur la page (comme pour la liste de course)
+- Rendre la création des étapes dynamiques sur la page (comme pour la liste de course)
 
-- Créer un compte sur ChatGPT, ajouter du crédit, créer une clé API et l'enregistrer dans un endroit sécurisé.
-- Récupérer le nom, la photo, la catégorie, les ingrédients (nom et quantité), les étapes de la recette et les sauvegarder dans un objet JSON dans le local storage
+- Écouter le click sur le bouton pour créer la recette et récupérer toutes les valeurs
+  et stocker tout ça dans un object JS qui sera ensuite transformé en JSON
+- Sauvegarder le json créé dans le localStorage
 
 ```json
 { 
   "nom": "Nom de la recette",
   "photo": "URL de la photo",
-  "categorie": "Catégorie de la recette",
+  "categorie": "Catégorie",
   "ingredients": [
     {
       "nom": "Nom de l'ingrédient",
-      "quantite": "Quantité de l'ingrédient"
+      "quantite": "Quantité"
+    },
+    {
+      "nom": "Nom de l'ingrédient",
+      "quantite": "Quantité"
     }
   ],
   "etapes": [
@@ -71,3 +76,13 @@
   ]
 }
 ```
+
+
+> Une recette doit être sauvegardée sous le format json (avec un objet)
+
+- Afficher les recettes sur la page d'accueil
+
+
+# Cours 4 : Générer une recette avec l'IA
+
+// TODO

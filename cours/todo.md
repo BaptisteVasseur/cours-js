@@ -47,8 +47,36 @@
 
 # Cours 3 : Ajouter des recettes / Les afficher sur la page d'accueil
 
-- Récupérer chaque input sur la page de création d'une recette et sauvegarder la recette créée dans le localStorage. (Il faut sauvegarder dans le localStorage un tableau de recette)
-- Gérer les cas ou on veut ajouter plusieurs ingrédients/etapes de preparation par recette
+- Rendre la création des ingrédients dynamique sur la page (comme pour la liste de course)
+- Rendre la création des étapes dynamiques sur la page (comme pour la liste de course)
+
+- Écouter le click sur le bouton pour créer la recette et récupérer toutes les valeurs 
+et stocker tout ça dans un object JS qui sera ensuite transformé en JSON
+- Sauvegarder le json créé dans le localStorage
+
+```json
+{ 
+  "nom": "Nom de la recette",
+  "photo": "URL de la photo",
+  "categorie": "Catégorie",
+  "ingredients": [
+    {
+      "nom": "Nom de l'ingrédient",
+      "quantite": "Quantité"
+    },
+    {
+      "nom": "Nom de l'ingrédient",
+      "quantite": "Quantité"
+    }
+  ],
+  "etapes": [
+    "Etape 1",
+    "Etape 2",
+    "Etape 3"
+  ]
+}
+```
+
 
 > Une recette doit être sauvegardée sous le format json (avec un objet)
 

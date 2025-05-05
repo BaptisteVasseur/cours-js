@@ -1,0 +1,53 @@
+<html lang="fr"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Recettes</title>
+    <link rel="stylesheet" href="../../template/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12.8 5.4c-.4-.4-1.1-.4-1.5 0L3.4 13.3c-.4.4-.4 1.1 0 1.5l7.9 7.9c.4.4 1.1.4 1.5 0l7.9-7.9c.4-.4.4-1.1 0-1.5L12.8 5.4zM12 2l9.9 9.9c1.2 1.2 1.2 3.1 0 4.2l-7.9 7.9c-1.2 1.2-3.1 1.2-4.2 0l-7.9-7.9c-1.2-1.2-1.2-3.1 0-4.2L12 2z"></path>
+                </svg>
+                <h1>Mes Recettes</h1>
+            </div>
+            <nav>
+                <a href="./index.html" class="active">Recettes</a>
+                <a href="../../template/generate-recipes.html" id="generate-recipe">Générer une recette</a>
+                <a href="../create-recipe/create-recipe.html">Créer</a>
+                <a href="../../template/shopping-list.html" class="btn-shopping-list">Liste de courses</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Information sur les recettes sélectionnées -->
+        <div class="selected-recipes-info">
+            <div>
+                <span id="selected-count">2 recettes sélectionnées</span>
+                <button id="show-selected" class="btn-show-selected" style="display: block;">Voir la sélection</button>
+                <button id="show-all" class="btn-show-all">Voir toutes les recettes</button>
+            </div>
+        </div>
+
+        <!-- Ajout des filtres -->
+        <div class="filters">
+            <select id="category-filter">
+                <option value="">Toutes les catégories</option>
+                <option value="Entrée">Entrée</option>
+                <option value="Plat">Plat</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+            <input type="text" id="search-recipe" placeholder="Rechercher une recette...">
+        </div>
+
+        <!-- Conteneur des recettes -->
+        <div id="recipes-container" class="recipes-container"></div>
+        <p id="no-recipes" style="display: none;">Aucune recette trouvée</p>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>

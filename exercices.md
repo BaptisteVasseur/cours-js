@@ -84,9 +84,9 @@
 65.	Affiche la longueur du tableau.
 66.	Crée un tableau de nombres, puis affiche uniquement les nombres supérieurs à 10 (avec une boucle).
 67.	Utilise une boucle pour additionner tous les éléments d’un tableau de nombres.
-68.	Inverse l’ordre des éléments dans un tableau (sans utiliser .reverse, mais en boucle).
-69.	Vérifie si un prénom donné est présent dans le tableau (avec .includes).
-70.	Trie un tableau de nombres du plus petit au plus grand (sans utiliser .sort, juste logique).
+68.	Inverse l’ordre des éléments dans un tableau (sans utiliser ``.reverse``, mais en boucle).
+69.	Vérifie si un prénom donné est présent dans le tableau (avec ``.includes``).
+70.	Trie un tableau de nombres du plus petit au plus grand (sans utiliser ``.sort``, juste logique).
 
 ⸻
 
@@ -105,27 +105,27 @@
 ⸻
 
 ## Exercice 7 : 🟢 Rechercher et manipuler des éléments du DOM (81 à 90)
-81.	Dans un fichier HTML, crée un élément <p> avec un id="texte", puis utilise getElementById en JS pour accéder à cet élément.
-82.	Crée un élément <div> avec une class="carte", puis récupère cet élément avec querySelector.
-83.	Crée plusieurs <li class="item"> dans une liste HTML, puis récupère tous ces éléments avec querySelectorAll.
-84.	Récupère un élément par son id et change son contenu avec .textContent.
-85.	Récupère un élément de type paragraphe et change son contenu HTML avec .innerHTML.
+81.	Dans un fichier HTML, crée un élément <p> avec un ``id="texte"``, puis utilise ``getElementById`` en JS pour accéder à cet élément.
+82.	Crée un élément ``<div>`` avec une ``class="carte"``, puis récupère cet élément avec querySelector.
+83.	Crée plusieurs ``<li class="item">`` dans une liste HTML, puis récupère tous ces éléments avec ``querySelectorAll``.
+84.	Récupère un élément par son id et change son contenu avec ``.textContent``.
+85.	Récupère un élément de type paragraphe et change son contenu HTML avec ``.innerHTML``.
 86.	Récupère un bouton par son id et change son texte en "Cliquez ici".
-87.	Récupère un élément par sa classe et modifie son style (par exemple color ou backgroundColor).
-88.	Ajoute une nouvelle classe CSS à un élément existant avec .classList.add().
-89.	Supprime une classe CSS existante sur un élément avec .classList.remove().
-90.	Crée un nouvel élément <span> en JavaScript, ajoute-lui du texte, et insère-le dans une <div> existante avec .appendChild().
+87.	Récupère un élément par sa classe et modifie son style (par exemple ``color`` ou ``backgroundColor``).
+88.	Ajoute une nouvelle classe CSS à un élément existant avec ``.classList.add()``.
+89.	Supprime une classe CSS existante sur un élément avec ``.classList.remove()``.
+90.	Crée un nouvel élément ``<span>`` en JavaScript, ajoute-lui du texte, et insère-le dans une ``<div>`` existante avec ``.appendChild()``.
 
 ⸻
 
 ## Exercice 8 : 🔵 Ajouter et gérer des événements sur les éléments (91 à 100)
 91. Ajoute un bouton dans la page HTML, puis fais en sorte qu’un clic dessus affiche "Bouton cliqué" dans la console.
 92. Modifie la couleur d’un paragraphe lorsqu’on clique sur un bouton.
-93. Lors d’un clic sur un bouton, change le texte d’un autre élément (<p> ou <div>).
-94. Fais apparaître ou disparaître un élément lorsqu’on clique sur un bouton (en jouant avec .style.display).
-95. Lorsqu’on passe la souris sur un élément (mouseover), change sa couleur de fond.
+93. Lors d’un clic sur un bouton, change le texte d’un autre élément (``<p>`` ou ``<div>``).
+94. Fais apparaître ou disparaître un élément lorsqu’on clique sur un bouton (en jouant avec ``.style.display``).
+95. Lorsqu’on passe la souris sur un élément (``mouseover``), change sa couleur de fond.
 96. Lorsqu’on quitte un élément avec la souris (mouseout), remets sa couleur d’origine.
-97. Ajoute un champ <input> et un bouton ; au clic, récupère la valeur saisie dans l’input et affiche-la dans un paragraphe.
-98. Crée un compteur qui s’incrémente à chaque clic sur un bouton, puis affiche la valeur dans un élément <span>.
+97. Ajoute un champ ``<input>`` et un bouton ; au clic, récupère la valeur saisie dans l’input et affiche-la dans un paragraphe.
+98. Crée un compteur qui s’incrémente à chaque clic sur un bouton, puis affiche la valeur dans un élément ``<span>``.
 99. Lorsqu’un champ de texte change (input ou change), affiche dynamiquement ce qu’on écrit dans une autre zone.
 100. Crée une mini interface avec 3 boutons de couleur (rouge, vert, bleu) qui changent la couleur d’un carré quand on clique dessus.

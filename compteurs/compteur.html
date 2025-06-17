@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Compteur Stylé</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #f2f2f2, #e0e0e0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #counterNumber {
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        #incrementButton { background-color: #4CAF50; }
+        #decrementButton { background-color: #F44336; }
+        #resetButton { background-color: #FF9800; }
+
+        .blue { color: blue; }
+        .orange { color: orange; }
+        .red { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Bonjour</h1>
+
+    <div id="counterNumber">0</div>
+    
+    <div class="buttons">
+        <button id="incrementButton">Incrémenter</button>
+        <button id="resetButton">Réinitialiser</button>
+        <button id="decrementButton">Décrémenter</button>
+    </div>
+
+    <script src="compteur.js"></script>
+</body>
+</html>

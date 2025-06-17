@@ -23,5 +23,5 @@ L'idée est d'avoir une page web avec plusieurs compteurs que l'utilisateur peut
 - Pouvoir supprimer des compteurs (avec un bouton "Supprimer" sur chaque compteur)
 - Pouvoir sauvegarder ces compteurs dans le navigateur et les restaurer au rechargement de la page (localStorage)
 - Pouvoir réinitialiser tous les compteurs en un clic (avec un bouton "Réinitialiser tout")
-- Pouvoir changer le nom du compteur (avec un input et un bouton "Changer le nom")
+- Pouvoir changer le nom du compteur (avec un prompt natif)
 

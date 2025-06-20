@@ -19,6 +19,8 @@ L'idée est d'avoir une page web avec plusieurs compteurs que l'utilisateur peut
 ## Partie 3 :
 
 - Avoir plusieurs compteurs sur la page (getElementById -> querySelector)
+
+
 - Pouvoir ajouter des compteurs directement en Javascript (via un boutton "Ajouter un compteur")
 - Pouvoir supprimer des compteurs (avec un bouton "Supprimer" sur chaque compteur)
 - Pouvoir sauvegarder ces compteurs dans le navigateur et les restaurer au rechargement de la page (localStorage)

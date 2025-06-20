@@ -16,10 +16,11 @@
         body {
             background: linear-gradient(to right, #f2f2f2, #e0e0e0);
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            align-items: flex-start;
             justify-content: center;
             height: 100vh;
+            padding: 20px;
         }
 
         h1 {
@@ -27,7 +28,14 @@
             color: #333;
         }
 
-        #counterNumber {
+        .compteurs {
+            background-color: white;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 5px;
+        }
+
+        .counterNumber {
             font-size: 5rem;
             font-weight: bold;
             margin-bottom: 30px;
@@ -54,9 +62,23 @@
             opacity: 0.9;
         }
 
-        #incrementButton { background-color: #4CAF50; }
-        #decrementButton { background-color: #F44336; }
-        #resetButton { background-color: #FF9800; }
+        #ajouterBoutton{
+            width: 100%;
+            padding: 15px 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            background-color: #2196F3;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .incrementButton { background-color: #4CAF50; }
+        .decrementButton { background-color: #F44336; }
+        .resetButton { background-color: #FF9800; }
 
         .blue { color: blue; }
         .orange { color: orange; }
@@ -64,14 +86,16 @@
     </style>
 </head>
 <body>
-    <h1>Bonjour</h1>
+    <button id="ajouterBoutton">Ajouter un compteur</button>
 
-    <div id="counterNumber">0</div>
-    
-    <div class="buttons">
-        <button id="incrementButton">Incrémenter</button>
-        <button id="resetButton">Réinitialiser</button>
-        <button id="decrementButton">Décrémenter</button>
+    <div class="compteurs">
+        <div class="counterNumber">0</div>
+        <div class="buttons">
+            <button class="incrementButton">Incrémenter</button>
+            <button class="resetButton">Réinitialiser</button>
+            <button class="decrementButton">Décrémenter</button>
+            <button class="deleteButton">Supprimer</button>
+        </div>
     </div>
 
     <script src="compteur.js"></script>

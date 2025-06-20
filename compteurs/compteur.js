@@ -1,77 +1,113 @@
-const incrementButton = document.querySelector('#incrementButton');
+////////////////////////////////////////////
+////////////// Pour X compteurs :
+////////////////////////////////////////////
 
-const decrementButton = document.querySelector('#decrementButton')
+const compteurs = document.querySelectorAll('.compteurs');
 
-const resetButton = document.querySelector('#resetButton')
+function ajouterEvenementsSurLesBouttonsDuCompteur(compteur) {
+    const counterNumber = compteur.querySelector('.counterNumber')
+    const incrementButton = compteur.querySelector('.incrementButton')
+    const decrementButton = compteur.querySelector('.decrementButton')
+    const resetButton = compteur.querySelector('.resetButton')
+    const deleteButton = compteur.querySelector('.deleteButton');
 
-const counterNumber = document.querySelector('#counterNumber');
+    let valeurCompteur = 0;
 
-var counter = 0;
+    // pour incrémenter :
+    function function1() {
+        valeurCompteur = valeurCompteur + 1;
 
-incrementButton.addEventListener('click', () => {
-    function1();
-})
+        if (valeurCompteur > 100) {
+            valeurCompteur = 100;
+        }
 
-decrementButton.addEventListener('click', () => {
-    function2()
-})
-
-resetButton.addEventListener('click', () => {
-    function3()
-})
-
-
-function changeColor() {
-    if (counter < 10) {
-        // bleu 
-        counterNumber.style.color = "blue";
-    } else if (counter < 20) {
-        // orange
-        counterNumber.style.color = "orange";
-    } else {
-        // red
-        counterNumber.style.color = "red";
+        counterNumber.innerHTML = valeurCompteur;
+        changeColor()
     }
-}
+    incrementButton.addEventListener('click', function1)
 
-document.addEventListener('keydown', (event) => {
-    const keyName = event.key;
+    // pour décrémenter :
+    function function2() {
+        valeurCompteur = valeurCompteur - 1;
 
-    if (keyName === 'i') {
-        function1()
-    } else if (keyName === 'd') {
-        function2()
-    } else if (keyName === 'r') {
-        function3()
-    } 
-})
+        if(valeurCompteur < 0) {
+            valeurCompteur = 0;
+            return;
+        }
 
-function function1() {
-    counter = counter + 1;
-
-    if (counter > 100) {
-        counter = 100;
+        // ou counter--
+        counterNumber.innerHTML = valeurCompteur;
+        changeColor()
     }
+    decrementButton.addEventListener('click', function2)
 
-    counterNumber.innerHTML = counter;
-    changeColor()
-}
+    // pour reinitialiser
+    function function3() {
+        valeurCompteur = 0;
+        counterNumber.innerHTML = valeurCompteur;
+        changeColor();
+    }
+    resetButton.addEventListener('click', () => function3)
 
-function function2() {
-    counter = counter - 1;
-
-    if(counter < 0) {
-        counter = 0;
-        return;
+    // pour changer la couleur du texte
+    function changeColor() {
+        if (valeurCompteur < 10) {
+            // bleu
+            counterNumber.style.color = "blue";
+        } else if (valeurCompteur < 20) {
+            // orange
+            counterNumber.style.color = "orange";
+        } else {
+            // red
+            counterNumber.style.color = "red";
+        }
     }
 
-    // ou counter--
-    counterNumber.innerHTML = counter;
-    changeColor()
+    deleteButton.addEventListener('click', () => {
+        compteur.remove()
+    })
 }
 
-function function3() {
-    counter = 0;
-    counterNumber.innerHTML = counter;
-    changeColor();
-}
+compteurs.forEach((compteur) => {
+    ajouterEvenementsSurLesBouttonsDuCompteur(compteur);
+});
+
+const ajouterBoutton = document.getElementById('ajouterBoutton');
+
+ajouterBoutton.addEventListener('click', function() {
+
+    const divCompteur = document.createElement('div')
+    divCompteur.classList.add('compteurs')
+    divCompteur.innerHTML = `
+        <div class="counterNumber">0</div>
+        <div class="buttons">
+            <button class="incrementButton">Incrémenter</button>
+            <button class="resetButton">Réinitialiser</button>
+            <button class="decrementButton">Décrémenter</button>
+            <button class="deleteButton">Supprimer</button>
+        </div>
+    `;
+
+    document.querySelector('body').appendChild(divCompteur);
+
+    ajouterEvenementsSurLesBouttonsDuCompteur(divCompteur);
+})
+
+
+
+
+
+
+
+
+// document.addEventListener('keydown', (event) => {
+//     const keyName = event.key;
+//
+//     if (keyName === 'i') {
+//         function1()
+//     } else if (keyName === 'd') {
+//         function2()
+//     } else if (keyName === 'r') {
+//         function3()
+//     }
+// })

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cours JS</title>
+    <style>
+        .ma-classe-personnalisee {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Titre de la page</h1>
+    <div class="contact">
+        <!-- This is a comment -->
+        <h2>Baptiste VASSEUR</h2>
+        <form method="GET">
+            <div>
+                <input type="text" name="nom">
+            </div>
+            <div>
+                <textarea name="commentaire"></textarea>
+            </div>
+            <div>
+                <button type="submit">Ajouter</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const titleElement = document.getElementById('title')
+        titleElement.innerText = "Ma super page, avec mon titre modifié en Javascript !";
+        titleElement.style.color = 'red';
+
+        const nomElement = document.querySelector('input');
+        console.log(nomElement);
+
+        const commentaireElement = document.querySelector('textarea');
+        console.log(commentaireElement);
+
+        const bouttonElement = document.querySelector('button');
+        console.log(bouttonElement);
+
+        function fonctionBouttonClique(e) {
+            e.preventDefault();
+            titleElement.style.color = 'blue';
+        }
+
+        bouttonElement.addEventListener('click', fonctionBouttonClique)
+    </script>
+</body>
+</html>

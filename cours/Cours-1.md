@@ -81,7 +81,7 @@ La différence entre une ``let`` et une ``var`` c'est ce qu'on appele la (porté
 let prenom = "Jean";
 let message = `Bonjour ${prenom}!`; // 
 
-// Vous pouvoir voir que pour la variable au dessus, on utilise des backquotes ` , cela permet de faire de l'interpolation de variable. C'est un peu comme en PHP quand vous avez des chaines de caractères avec des doubles guillements et que vous mettez des $maVariable dedans et que ça affiche directement la valeur
+// Vous pouvoir voir que pour la variable au dessus, on utilise des backquotes (guillements inversés en Français) : ` , cela permet de faire de l'interpolation de variable. C'est un peu comme en PHP quand vous avez des chaines de caractères avec des doubles guillements et que vous mettez des variables avec des $ dans la chaine de caractère, c'est la valeur qui est remplacé à l'intérieur
 // -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
 
@@ -131,7 +131,129 @@ console.log(x || y); // true (OU logique)
 console.log(!x);     // false (NON logique)
 ```
 
-#### **1.4 Conditions**
+#### **1.4 Fonctions d'interaction avec l'utilisateur**
+
+JavaScript dispose de plusieurs fonctions intégrées pour interagir avec l'utilisateur et déboguer le code.
+
+**1.4.1 console.log() - Affichage dans la console :**
+```javascript
+// Affichage simple
+console.log("Bonjour le monde");
+
+// Affichage de variables
+let nom = "Alice";
+let age = 25;
+console.log("Nom:", nom, "Age:", age);
+
+// Affichage d'objets
+let utilisateur = { nom: "Bob", age: 30 };
+console.log("Utilisateur:", utilisateur);
+
+// Affichage avec formatage
+console.log(`L'utilisateur ${nom} a ${age} ans`);
+
+// Différents niveaux de log
+console.error("Ceci est une erreur");
+console.warn("Ceci est un avertissement");
+console.info("Ceci est une information");
+```
+
+> **Important :** `console.log()` est essentiel pour déboguer ton code. Ouvre les outils de développement de ton navigateur (F12) pour voir les messages dans l'onglet "Console".
+
+**1.4.2 alert() - Boîte de dialogue d'alerte :**
+```javascript
+// Message simple
+alert("Bienvenue sur notre site !");
+
+// Message avec variable
+let message = "Votre compte a été créé avec succès";
+alert(message);
+
+// Attention : alert() bloque l'exécution du code jusqu'à ce que l'utilisateur clique sur OK
+```
+
+> **Note :** `alert()` est pratique pour les tests mais peu utilisé en production car l'expérience utilisateur n'est pas optimale.
+
+**1.4.3 prompt() - Saisie utilisateur :**
+```javascript
+// Saisie simple
+let nom = prompt("Quel est votre nom ?");
+console.log("Bonjour", nom);
+
+// Saisie avec valeur par défaut
+let age = prompt("Quel est votre âge ?", "18");
+console.log("Vous avez", age, "ans");
+
+// Conversion en nombre
+let nombre = parseInt(prompt("Entrez un nombre :"));
+let prix = parseFloat(prompt("Entrez un prix :"));
+
+// Gestion des cas d'annulation
+let reponse = prompt("Êtes-vous sûr ?");
+if (reponse === null) {
+    console.log("L'utilisateur a annulé");
+} else {
+    console.log("Réponse :", reponse);
+}
+```
+
+> **Important :** `prompt()` retourne toujours une chaîne de caractères. Utilise `parseInt()` ou `parseFloat()` pour convertir en nombre.
+
+**1.4.4 confirm() - Confirmation utilisateur :**
+```javascript
+// Confirmation simple
+let confirmer = confirm("Êtes-vous sûr de vouloir continuer ?");
+if (confirmer) {
+    console.log("L'utilisateur a confirmé");
+} else {
+    console.log("L'utilisateur a annulé");
+}
+
+// Confirmation avec action
+let supprimer = confirm("Voulez-vous vraiment supprimer cet élément ?");
+if (supprimer) {
+    console.log("Élément supprimé");
+    // Code de suppression ici
+} else {
+    console.log("Suppression annulée");
+}
+
+// Confirmation dans une fonction
+function demanderConfirmation(message) {
+    return confirm(message);
+}
+
+let continuer = demanderConfirmation("Continuer l'opération ?");
+```
+
+**1.4.5 Exemple pratique combiné :**
+```javascript
+// Mini application de calculatrice
+let nombre1 = parseFloat(prompt("Entrez le premier nombre :"));
+let nombre2 = parseFloat(prompt("Entrez le deuxième nombre :"));
+
+if (isNaN(nombre1) || isNaN(nombre2)) {
+    alert("Veuillez entrer des nombres valides !");
+} else {
+    let resultat = nombre1 + nombre2;
+    let message = `${nombre1} + ${nombre2} = ${resultat}`;
+    
+    console.log("Calcul effectué :", message);
+    alert(message);
+    
+    let continuer = confirm("Voulez-vous faire un autre calcul ?");
+    if (continuer) {
+        console.log("Nouveau calcul demandé");
+        // Ici on pourrait relancer le processus
+    }
+}
+```
+
+> **Conseil :** Ces fonctions sont parfaites pour apprendre et tester, mais dans une vraie application web, on préfère utiliser des formulaires HTML et des éléments DOM pour une meilleure expérience utilisateur.
+
+> Les fenetres affichés par les fonctions ``prompt``, ``confirm``, ... ne sont pas personnalisables ! Et elle dépendent du navigateur et de l'OS de l'utilisateur
+
+#### **1.5 Conditions**
 
 **Structure if/else :**
 ```javascript

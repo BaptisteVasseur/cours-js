@@ -1,24 +1,26 @@
-
-async function recupererLesPokemons() {
+async function recupererDonnee() {
     const url = 'https://tyradex.app/api/v1/pokemon';
     const options = {method: 'GET'};
 
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        data.forEach(function(pokemon) {
-            const maDivPokemon = document.createElement('div');
-            maDivPokemon.classList.add('pokemons');
-            maDivPokemon.innerHTML = `
-                <h2>${pokemon.name.fr}</h2>
-                <img src="${pokemon.sprites.regular}">
+
+        data.forEach(function(monPokemon) {
+            const monElementQuiVaAllerDansLeDOM = document.createElement('div');
+            monElementQuiVaAllerDansLeDOM.classList.add('pokemon')
+            monElementQuiVaAllerDansLeDOM.innerHTML = `
+                ${monPokemon.name.fr}
+                <img src="${monPokemon.sprites.regular}" />
             `;
-            document.body.appendChild(maDivPokemon);
-        });
+
+            document.body.appendChild(monElementQuiVaAllerDansLeDOM);
+        })
+
+
     } catch (error) {
         console.error(error);
     }
 }
 
-recupererLesPokemons();
-
+recupererDonnee();

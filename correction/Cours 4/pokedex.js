@@ -16,8 +16,6 @@ async function recupererDonnee() {
 
             document.body.appendChild(monElementQuiVaAllerDansLeDOM);
         })
-
-
     } catch (error) {
         console.error(error);
     }

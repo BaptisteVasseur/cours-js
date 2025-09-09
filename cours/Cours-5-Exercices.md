@@ -119,8 +119,8 @@ Créez une application simple qui récupère et affiche des posts depuis l'API J
 
 1. **Fonction `chargerPosts()`** :
    - Récupérer les 5 premiers posts depuis `https://jsonplaceholder.typicode.com/posts`
-   - Afficher chaque post avec titre, contenu et métadonnées
-   - Gérer les états de chargement et d'erreur
+   - Afficher chaque post avec titre et contenu (tips: vous allez devoir faire une boucle et créer des éléments HTML dans la div avec l'id #content)
+   - Gérer les états de chargement et d'erreur (afficher le chargeur pendant la requête et un message d'erreur en cas de problème)
 
 2. **Fonction `chargerPost()`** :
    - Demander à l'utilisateur l'ID du post (1-100)

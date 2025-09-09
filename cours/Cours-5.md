@@ -27,15 +27,15 @@ Une API (Application Programming Interface) est un ensemble de règles et de pro
 // Exemple d'API REST
 // GET https://api.meteo.com/v1/meteo?ville=Paris
 // POST https://api.facebook.com/v1/create
-// PUT https://api.facebook.com/v1/update/123
-// DELETE https://api.facebook.com/v1/delete/123
+// PUT https://api.facebook.com/v1/update/utilisateur-numero-123
+// DELETE https://api.facebook.com/v1/delete/utilisateur-numero-123
 ```
 
 > REST est le type d'API le plus courant. Il utilise les verbes HTTP (GET, POST, PUT, DELETE) pour définir les actions.
 
 **APIs GraphQL :**
-```javascript
-// Exemple de requête GraphQL
+```graphql
+# Exemple de requête GraphQL
 query {
   user(id: 123) {
     name
@@ -53,7 +53,7 @@ query {
 **Formats de données :**
 
 **JSON (JavaScript Object Notation) :**
-```javascript
+```json
 {
   "nom": "Alice",
   "age": 25,
@@ -79,7 +79,7 @@ query {
 </utilisateur>
 ```
 
-> XML est plus verbeux que JSON mais très structuré. Il est encore utilisé dans certains systèmes.
+> XML est plus verbeux que JSON mais très structuré. Il est encore utilisé dans certains systèmes. Mais on aura tendance à privilégier le JSON.
 
 #### **5.3 Spécificités des APIs REST**
 
@@ -107,6 +107,8 @@ query {
 | **503** | Service Unavailable | Service temporairement indisponible |
 
 > Les codes de retour permettent de savoir si la requête a réussi et de comprendre les erreurs éventuelles.
+
+> En gros une API REST c'est un verbe HTTP + une URL + des données (optionnelles) + un code de retour.
 
 #### **5.4 Exemples d'APIs populaires pour débuter**
 
@@ -162,6 +164,17 @@ console.log("3. Fin");
 ```
 
 > Les requêtes API sont asynchrones car elles prennent du temps (réseau, serveur distant, quantité de données à récupérer).
+> Cela permet à l'interface utilisateur de rester réactive pendant que les données sont chargées.
+> Il est crucial de bien gérer l'asynchrone pour éviter les erreurs et garantir une bonne expérience utilisateur.
+> Les principales méthodes pour gérer l'asynchrone en JavaScript sont les **promesses (Promises)** et la syntaxe **async/await**.
+> Elles permettent de structurer le code de manière claire et lisible.
+> Elles facilitent également la gestion des erreurs.
+> L'asynchrone est un concept fondamental pour le développement web moderne, notamment pour les applications interactives et dynamiques.
+> Il est important de bien comprendre ces concepts pour travailler efficacement avec les APIs.
+
+> Exemple avec le vie de tout les jours avec une file d'attente au supermarché :
+> Synchrone : Tu attends que chaque personne devant toi soit servie avant de passer à la caisse.
+> Asynchrone : Tu prends un ticket et tu peux faire d'autres choses pendant que tu attends ton tour.
 
 #### **5.6 Les Promesses (Promises)**
 
@@ -171,6 +184,8 @@ Une promesse représente une valeur qui sera disponible dans le futur. Elle peut
 - **Rejected** : échouée avec une erreur
 
 > Les promesses sont comme un "contrat" : "Je te promets que je vais te donner une réponse, mais pas tout de suite".
+
+Il est possible de créer des promesses manuellement avec le constructeur `Promise`. Mais en pratique, on utilise souvent des fonctions qui retournent direct des promesses, comme `fetch()`.
 
 **Syntaxe de base :**
 ```javascript
@@ -187,7 +202,7 @@ let maPromesse = new Promise((resolve, reject) => {
         } else {
             reject("Erreur !");
         }
-    }, 2000); // Attendre 2 secondes
+    }, 5000); // Attendre 5 secondes
 });
 
 // Utilisation avec .then() et .catch()
@@ -239,6 +254,8 @@ async function main() {
 
 main();
 ```
+
+L'idée est de rendre le code asynchrone plus linéaire et facile à lire, comme s'il était synchrone. C'est une syntaxe beaucoup plus intuitive pour gérer les opérations asynchrones.
 
 #### **5.8 Fetch API - Requêtes GET**
 
@@ -336,6 +353,10 @@ async function afficherPosts() {
 #### **5.11 Bonnes pratiques**
 
 **Gestion des erreurs :**
+
+Un truc auquelle il faut penser régulièrement est la gestion des erreurs. Voici un exemple de fonction qui gère les erreurs de manière plus robuste :
+Pourquoi ? Parce que cela permet de distinguer les erreurs de réseau (comme une perte de connexion) des erreurs HTTP (comme une ressource non trouvée sur le serveur) ou des erreurs liés aux données que l'utilisateur pourrait envoyer.
+
 ```javascript
 async function maFonctionQuiFaitMaRequete(url) {
     try {

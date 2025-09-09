@@ -3,50 +3,86 @@
 
 ---
 
-## 📋 **PLAN GÉNÉRAL DU COURS**
+## **PLAN GÉNÉRAL DU COURS**
 
 ### Objectifs pédagogiques
 À l'issue de cette formation, les étudiants seront capables de :
 - Maîtriser les bases de JavaScript et sa syntaxe
 - Manipuler le DOM pour créer des interfaces interactives
-- Utiliser les API Web du navigateur (localStorage, events)
-- Consommer des API REST avec Fetch API
-- Comprendre la programmation asynchrone (Promises, async/await)
-- Intégrer des services d'IA dans leurs applications
-- Développer des applications web complètes
+- Comprendre et utiliser les différents types d'API (publiques/privées)
+- Gérer l'authentification et les API sécurisées
+- Consommer des API REST avec Fetch API et comprendre les API stateless
+- Maîtriser la programmation asynchrone (Promises, async/await)
+- Intégrer des services externes dans leurs applications
+- Développer des applications web complètes et sécurisées
 
-### Séances :
+## **PROGRESSION PÉDAGOGIQUE OPTIMISÉE**
 
-- Cours 1 : Découverte du JavaScript, syntaxe de base
-- Cours 2 : Structures de contrôle et objets
-- Cours 3 : DOM API
-- Cours 4 : 
-- Cours 5 : 
-- Cours 6 : 
-- Cours 7 : 
-- Cours 8 : 
+**Séance 1 : Découverte du JavaScript**
+Apprentissage des fondamentaux de JavaScript pour créer ses premières interactions web.
+- **Mots-clés** : variables, types, opérateurs, conditions, fonctions d'interaction
+- **Exemples d'exercices** : Calculateur d'âge, quiz interactif, générateur de messages personnalisés
 
-### Déroulé du cours 
+**Séance 2 : Structures de contrôle et objets**
+Maîtrise des structures de données et de contrôle pour créer des programmes plus complexes.
+- **Mots-clés** : boucles, fonctions fléchées, tableaux, objets, destructuring
+- **Exemples d'exercices** : Gestionnaire de notes d'élèves, générateur de mot de passe, catalogue de produits
 
-Pour chaque cours, une partie théorie, une partie Exos.
+**Séance 3 : DOM API - Sélection, modification et événements**
+Manipulation du DOM et gestion des événements pour créer des interfaces dynamiques.
+- **Mots-clés** : sélecteurs, modification DOM, création d'éléments, événements, interaction utilisateur
+- **Exemples d'exercices** : Gestionnaire de tâches interactif, galerie d'images, formulaire dynamique
 
-Créer un dossier "Cours Javascript" et dedans des sous-dossiers "Cours 1", "Cours 2", ... puis dedans des fichiers HTML : Cours.html, Exercice1.html ... 
+**Séance 4 : DOM API avancée et événements**
+Approfondissement de la manipulation DOM et des événements pour des applications interactives.
+- **Mots-clés** : événements avancés, validation, localStorage, persistance de données
+- **Exemples d'exercices** : Calculatrice complète, jeu de memory, panier d'achat avec sauvegarde
 
-### Déroulé du cours 
+**Séance 5 : Introduction aux API REST et programmation asynchrone**
+Découverte des API REST et de la programmation asynchrone pour consommer des données externes.
+- **Mots-clés** : API REST, fetch, promises, async/await, JSON, requêtes GET
+- **Exemples d'exercices** : Pokédex avec PokeAPI, catalogue de films, générateur de blagues
 
-Chaque séance de 3h se décompose en deux parties :
+**Séance 6 : API avec méthodes HTTP complètes**
+Utilisation des méthodes HTTP POST, PUT, PATCH pour créer et modifier des données.
+- **Mots-clés** : POST, PUT, PATCH, DELETE, corps de requête, gestion d'erreurs HTTP
+- **Exemples d'exercices** : Gestionnaire de tâches avec API, formulaire de contact, système de commentaires
 
-**📚 Partie Théorique (1h30)** : 
-- Explications des concepts avec des exemples concrets
-- Démonstrations en direct
-- Questions/réponses
+**Séance 7 : API privées, authentification et concepts stateless/stateful**
+Gestion de l'authentification et compréhension des architectures API sécurisées.
+- **Mots-clés** : authentification, tokens, API privées, stateless, stateful, headers, sécurité
+- **Exemples d'exercices** : Application avec login, dashboard utilisateur, API sécurisée avec token
 
-**💻 Partie Pratique (1h30)** :
-- Exercices guidés pour appliquer la théorie
-- Projets concrets à réaliser
-- Accompagnement individuel
+**Séance 8 : Projet final évalué**
+Réalisation d'une application complète intégrant tous les concepts vus.
+- **Projet** : Clone WhatsApp Web avec authentification, messagerie temps réel et gestion de fichiers 
 
-### 📁 Organisation des fichiers
+## **ÉVALUATION DU MODULE**
+
+### Répartition des notes
+- **Évaluation intermédiaire** (Séance 6) : Mini TP API avec sujet aléatoire / QCM
+- **TP Final** (Séance 8) : Clone WhatsApp Web complet
+
+### Concepts abordés :
+
+#### 🔓 **API Publiques vs Privées**
+- **API Publiques** : Accessibles sans authentification (PokeAPI, API météo)
+- **API Privées** : Nécessitent une authentification (API bancaires, données personnelles)
+- **API Freemium** : Accès limité gratuit, fonctionnalités avancées payantes
+- **API Keys** : Clés simples pour identifier l'application
+- **Tokens Bearer** : Tokens temporaires pour l'authentification utilisateur
+- **OAuth 2.0** : Délégation d'authentification (connexion via Google, Facebook)
+- **JWT (JSON Web Tokens)** : Tokens auto-contenus avec informations utilisateur
+- **Stateless** : Chaque requête est indépendante (REST standard)
+- **Stateful** : Le serveur garde en mémoire l'état des sessions
+- **Avantages du stateless** : Scalabilité, simplicité, fiabilité
+
+## **Organisation des fichiers**
+
+Créez un dossier "Cours Javascript" avec un sous-dossier par séance.
+Dans chaque dossier : un fichier `Cours.html` pour tester + vos exercices.
+
+Ça vous permettra de voir votre progression et de revenir sur les anciens exercices.
 
 Pour bien organiser votre travail, créez la structure de dossiers suivante :
 
@@ -54,31 +90,51 @@ Pour bien organiser votre travail, créez la structure de dossiers suivante :
 Cours Javascript/
 ├── Cours 1/
 │   ├── Cours.html          (page pour tester les exemples du cours)
-│   ├── Exercice1.html      (exercices du cours 1)
-│   ├── Exercice2.html
-│   └── Exercice3.html
+│   ├── Exercice1.html    
+│   ├── Exercice2.html    
+│   └── Exercice3.html    
 ├── Cours 2/
 │   ├── Cours.html
-│   ├── Exercice1.html      (exercices du cours 2)
+│   ├── Exercice1.html
 │   ├── Exercice2.html
-│   └── ...
+│   └── Exercice3.html
 ├── Cours 3/
 │   ├── Cours.html
-│   ├── GestionnaireTaches.html
-│   ├── Calculateur.html
-│   └── ...
-└── ...
+│   └── Exercice1.html 
+│   └── Exercice2.html 
+├── Cours 4/
+│   ├── Cours.html
+│   └── Exercice1.html 
+│   └── Exercice2.html 
+├── Cours 5/
+│   ├── Cours.html
+│   └── Exercice1.html   
+│   └── Exercice2.html   
+├── Cours 6/
+│   ├── Cours.html
+│   └── Exercice1.html    
+│   └── Exercice2.html   
+├── Cours 7/
+│   ├── Cours.html
+│   └── Exercice1.html
+│   └── Exercice2.html   
+└── Cours 8/
+    ├── Cours.html
+    └── Exercice1.html
+    └── Exercice2.html
 ```
 
-**Pourquoi cette organisation ?**
-- **Séparation claire** : Chaque cours dans son propre dossier
-- **Facilité de navigation** : Retrouvez rapidement vos fichiers
-- **Progression visible** : Vous voyez votre évolution
-- **Réutilisation** : Vous pouvez revenir sur les anciens exercices
+## **Conseils pratiques**
 
-**Conseils pour les débutants :**
-- Créez un fichier `Cours.html` dans chaque dossier pour tester les exemples du cours
-- Nommez vos fichiers de manière claire (ex: `GestionnaireTaches.html`, `Calculateur.html`)
-- Sauvegardez régulièrement votre travail
-- Utilisez des commentaires dans votre code pour vous souvenir de ce que vous faites
+### Pour bien réussir
+- Pratiquez un peu chaque jour entre les cours (même 15 minutes)
+- N'hésitez pas à poser des questions, c'est normal de ne pas tout comprendre du premier coup
+- Commentez votre code pour vous rappeler ce que vous avez fait
+- Cassez votre code pour comprendre comment ça marche !
+- Posez-vous, essayez de décomposer votre "gros problème" en plusieurs petits problèmes, d'y aller étape par étape
+
+### Outils indispensables
+- **Visual Studio Code** + **Live Server Extension** 
+- **Chrome DevTools** (F12) pour déboguer
+- **Bruno** pour tester les API (séances 5 à 8)
 

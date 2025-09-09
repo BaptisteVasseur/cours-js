@@ -1,119 +1,314 @@
-## 🌐 **SÉANCE 4 - Fetch API et Programmation Asynchrone**
+## 🌐 **SÉANCE 4 - DOM API avancée et événements**
 
 ### **Partie Pratique**
 
-**Exercice 1 : Découverte des APIs**
+**Exercice 1 : Gestion avancée des événements**
 
-Créez un fichier HTML avec JavaScript qui utilise l'API JSONPlaceholder pour récupérer et afficher des posts.
+Créez une page interactive qui gère différents types d'événements.
 
-- Créez une page HTML avec un bouton "Charger les posts"
-- Utilisez l'API `https://jsonplaceholder.typicode.com/posts`
-- Affichez les 5 premiers posts dans la page
-- Gérer les états de chargement et d'erreur
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements Avancés</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .event-zone {
+            padding: 50px;
+            margin: 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .event-zone:hover {
+            background-color: #f0f0f0;
+        }
+        .log {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        .key-combo {
+            background-color: #e7f3ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Gestion Avancée des Événements</h1>
+        
+        <div class="event-zone" id="mouseZone">
+            Zone de test souris<br>
+            Cliquez, double-cliquez, survolez...
+        </div>
+        
+        <div class="key-combo">
+            <strong>Testez ces combinaisons :</strong><br>
+            Ctrl+S, Ctrl+Z, Escape, Enter, Flèches directionnelles
+        </div>
+        
+        <input type="text" id="keyboardInput" placeholder="Tapez ici pour tester le clavier...">
+        
+        <div class="log" id="eventLog">
+            <strong>Journal des événements :</strong><br>
+        </div>
+        
+        <button onclick="clearLog()">Effacer le journal</button>
+    </div>
 
-**Questions à vous poser :**
-- Que se passe-t-il quand vous cliquez sur le bouton ?
-- D'où viennent les données affichées ?
-- Pourquoi utilise-t-on `await` ?
-- Que se passe-t-il si vous coupez votre connexion internet ?
+    <script>
+        // TODO : Implémenter la gestion des événements
+    </script>
+</body>
+</html>
+```
 
-**Exercice 2 : Gestion des erreurs**
+**Travail à faire :**
 
-Modifiez le code de l'exercice 1 pour gérer différents cas d'erreur :
+1. **Événements de souris** sur la zone de test :
+   - `click`, `dblclick`, `mousedown`, `mouseup`
+   - `mouseover`, `mouseout`, `mousemove`
+   - Afficher les coordonnées de la souris
+   - Détecter les clics droit (contextmenu)
 
-- Erreur de réseau (pas de connexion internet)
-- Erreur 404 (ressource non trouvée)
-- Erreur 500 (erreur serveur)
-- Afficher des messages d'erreur appropriés pour chaque cas
+2. **Événements de clavier** :
+   - Détecter les touches spéciales (Escape, Enter, flèches)
+   - Gérer les combinaisons Ctrl+S, Ctrl+Z
+   - Empêcher les raccourcis par défaut du navigateur
+   - Afficher le code et le nom de la touche
 
-**Questions à vous poser :**
-- Quelles sont les différentes sources d'erreur possibles ?
-- Comment distinguer une erreur de réseau d'une erreur de l'API ?
-- Pourquoi est-il important de gérer les erreurs ?
+3. **Journal des événements** :
+   - Créer une fonction `logEvent(message)` qui ajoute les événements au journal
+   - Limiter à 50 événements maximum
+   - Mettre une date à chaque événement
+   - Implémenter la fonction `clearLog()`
 
-**Exercice 3 : API Pokémon**
+**Exercice 2 : Jeu de Morpion (Tic Tac Toe)**
 
-Créez une application qui affiche des informations sur les Pokémon :
+Créez un jeu de morpion interactif avec comptage des scores.
 
-- Créez une page avec un champ de saisie pour l'ID du Pokémon (1-151)
-- Utilisez l'API Poekmon de Tyradex `https://tyradex.vercel.app/docs`
-- Affichez : nom, image, types, taille, poids, statistiques
-- Ajoutez des couleurs pour les différents types de Pokémon
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Morpion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+        .game-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .current-player {
+            font-size: 24px;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            max-width: 300px;
+            margin: 30px auto;
+            background: #34495e;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        .cell {
+            width: 90px;
+            height: 90px;
+            background-color: white;
+            border: none;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #333;
+        }
+        .cell:hover:not(:disabled) {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+        .cell:disabled {
+            cursor: not-allowed;
+        }
+        .cell.x {
+            color: #e74c3c;
+        }
+        .cell.o {
+            color: #3498db;
+        }
+        .winning-cell {
+            background-color: #2ecc71 !important;
+            animation: pulse 0.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .game-controls {
+            margin: 20px 0;
+        }
+        .game-controls button {
+            margin: 0 10px;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #e74c3c;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .game-controls button:hover {
+            background-color: #c0392b;
+        }
+        .mode-selector {
+            margin: 20px 0;
+        }
+        .mode-selector button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgba(255,255,255,0.8);
+            color: #333;
+        }
+        .mode-selector button.active {
+            background-color: #f39c12;
+            color: white;
+        }
+        .game-result {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: none;
+        }
+        .score-board {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .player-score {
+            display: inline-block;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>⭕ Jeu de Morpion</h1>
+        
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="pvp">Joueur vs Joueur</button>
+            <button class="mode-btn" data-mode="pvc">Joueur vs Ordinateur</button>
+        </div>
+        
+        <div class="score-board">
+            <div class="player-score">
+                <strong>Joueur X:</strong> <span id="scoreX">0</span>
+            </div>
+            <div class="player-score">
+                <strong>Joueur O:</strong> <span id="scoreO">0</span>
+            </div>
+            <div class="player-score">
+                <strong>Égalités:</strong> <span id="scoreTie">0</span>
+            </div>
+        </div>
+        
+        <div class="current-player">
+            Au tour de : <span id="currentPlayerDisplay">❌ (X)</span>
+        </div>
+        
+        <div class="game-board" id="gameBoard">
+            <button class="cell" data-index="0"></button>
+            <button class="cell" data-index="1"></button>
+            <button class="cell" data-index="2"></button>
+            <button class="cell" data-index="3"></button>
+            <button class="cell" data-index="4"></button>
+            <button class="cell" data-index="5"></button>
+            <button class="cell" data-index="6"></button>
+            <button class="cell" data-index="7"></button>
+            <button class="cell" data-index="8"></button>
+        </div>
+        
+        <div class="game-controls">
+            <button onclick="startNewGame()">Nouvelle Partie</button>
+            <button onclick="resetScores()">Remettre à Zéro</button>
+        </div>
+        
+        <div class="game-result" id="gameResult">
+            <h2 id="resultTitle">🎉 Résultat</h2>
+            <p id="resultMessage">Le joueur X a gagné !</p>
+            <button onclick="startNewGame()">Rejouer</button>
+        </div>
+    </div>
 
-**Questions à vous poser :**
-- Comment l'API Pokémon est-elle structurée ?
-- Quelles informations pouvez-vous récupérer sur un Pokémon ?
-- Comment gérer les images qui peuvent ne pas exister ?
+    <script>
+        // TODO : Implémenter le jeu de morpion
+    </script>
+</body>
+</html>
+```
 
-**Exercice 4 : Gestion des états de chargement**
+**Travail à faire :**
 
-Améliorez l'expérience utilisateur avec des indicateurs visuels :
+1. **Variables du jeu** :
+   - Tableau pour stocker l'état des 9 cases
+   - Variable pour le joueur actuel (X ou O)
+   - Mode de jeu (Joueur vs Joueur ou Joueur vs Ordinateur)
+   - Scores des joueurs
 
-- Ajoutez un spinner ou une animation de chargement
-- Affichez un message "Chargement en cours..."
-- Ajoutez un bouton "Réessayer" en cas d'erreur
-- Empêchez les clics multiples pendant le chargement
+2. **Logique du jeu** :
+   - Gérer les clics sur les cases
+   - Alterner entre les joueurs
+   - Vérifier les conditions de victoire (lignes, colonnes, diagonales)
+   - Détecter les égalités
 
-**Questions à vous poser :**
-- Pourquoi est-il important d'avoir des états de chargement ?
-- Comment améliorer encore l'expérience utilisateur ?
-- Que se passe-t-il si l'utilisateur clique plusieurs fois rapidement ?
+3. **Intelligence artificielle simple** :
+   - Ordinateur joue automatiquement après le joueur humain
+   - Stratégie simple : jouer aléatoirement dans les cases libres
+   - Bonus : implémenter une IA plus intelligente
 
-**Exercice 5 : Requêtes multiples**
-
-Créez une application qui charge plusieurs Pokémon en même temps :
-
-- Chargez une équipe de 6 Pokémon (Example : Pokémon n°1, 4, 7, 25, 133, 6)
-- Utilisez `Promise.all()` pour charger tous les Pokémon simultanément
-- Affichez tous les Pokémon dans une grille
-- Gérer le cas où certaines requêtes échouent
-
-**Questions à vous poser :**
-- Quelle est la différence entre `Promise.all()` et faire les requêtes une par une ?
-- Que se passe-t-il si une des requêtes échoue avec `Promise.all()` ?
-- Comment gérer le cas où certaines requêtes réussissent et d'autres échouent ?
-
-**Exercice 6 : API météo**
-
-Créez une application météo simple :
-
-- Inscrivez-vous sur OpenWeatherMap pour obtenir une clé API gratuite
-- Créez un formulaire pour saisir une ville
-- Utilisez l'API météo pour récupérer les informations
-- Affichez : température, description, humidité, vent
-
-**Questions à vous poser :**
-- Pourquoi certaines APIs nécessitent-elles une clé d'authentification ?
-- Comment protéger votre clé API dans le code frontend ?
-- Quelles sont les limites des APIs gratuites ?
-
-**Exercice 7 : Gestion des formulaires avec API**
-
-Créez un formulaire de recherche qui utilise une API :
-
-- Créez un formulaire avec un champ de recherche et un sélecteur (utilisateurs, posts, albums)
-- Utilisez l'API JSONPlaceholder pour récupérer les données
-- Filtrez les résultats selon le terme de recherche
-- Affichez le nombre de résultats trouvés
-
-**Questions à vous poser :**
-- Comment gérer la validation des formulaires côté client ?
-- Comment optimiser les recherches pour éviter trop de requêtes ?
-- Comment implémenter une recherche en temps réel ?
-
-**Exercice 8 : Projet final - Application complète**
-
-Créez une application de gestion de tâches qui utilise une API :
-
-- Utilisez l'API `https://jsonplaceholder.typicode.com/todos`
-- Chargez les 10 premières tâches au démarrage
-- Permettez d'ajouter une nouvelle tâche
-- Permettez de marquer une tâche comme terminée
-- Permettez de supprimer une tâche
-- Gérer tous les états (chargement, erreur, succès)
-
-**Questions à vous poser :**
-- Comment améliorer cette application ?
-- Quelles fonctionnalités pourriez-vous ajouter ?
-- Comment gérer la synchronisation des données ?
-- Comment optimiser les performances ?
+4. **Interface utilisateur** :
+   - Mettre à jour l'affichage du joueur actuel
+   - Afficher le résultat de la partie
+   - Compteur de scores
+   - Animations pour les cases gagnantes

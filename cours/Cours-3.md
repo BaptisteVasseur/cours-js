@@ -1,4 +1,4 @@
-## 🌐 **SÉANCE 3 - DOM API**
+## 🌐 **SÉANCE 3 - DOM API - Sélection, modification et événements**
 
 ### **Partie Théorique**
 
@@ -40,11 +40,11 @@ let element = document.getElementById('monId');
 
 **Sélection par classe :**
 ```javascript
-// Sélection par classe (retourne une HTMLCollection)
+// Sélection par classe (retourne une liste)
 let elements = document.getElementsByClassName('maClasse');
 ```
 
-> `getElementsByClassName` retourne une collection d'éléments. Même s'il n'y a qu'un seul élément avec cette classe, vous obtenez une collection.
+> `getElementsByClassName` retourne une collection d'éléments. Même s'il n'y a qu'un seul élément avec cette classe, vous obtenez une collection (un collection = un tableau, donc il faudra le parcourir pour accéder à chacun des éléments).
 
 **Sélection par balise :**
 ```javascript
@@ -52,7 +52,7 @@ let elements = document.getElementsByClassName('maClasse');
 let paragraphes = document.getElementsByTagName('p');
 ```
 
-> Cette méthode retourne tous les éléments d'un certain type (tous les `<p>`, tous les `<div>`, etc. de votre page web).
+> Cette méthode retourne tous les éléments d'un certain type (tous les `<p>`, toutes les `<div>`, tous les H1, etc ... de votre page web).
 
 **Sélecteurs CSS modernes :**
 ```javascript
@@ -71,7 +71,7 @@ let tousLesParagraphes = document.querySelectorAll('p');
 ```javascript
 let bouton = document.querySelector('#monBouton');
 let tousLesBoutons = document.querySelectorAll('button');
-let premierParagraphe = document.querySelector('div.container > p');
+let premierParagraphe = document.querySelector('.container > p');
 ```
 
 #### **3.3 Comment modifier le contenu ?**
@@ -111,7 +111,7 @@ element.classList.toggle('active');
 element.classList.contains('ma-classe'); // true/false
 ```
 
-> `classList` est plus pratique que de manipuler directement `className` car elle gère automatiquement les espaces entre les classes.
+> Si vous ajoutez des classes à vos éléments en Javascript et que les classes ont du style CSS, alors le style est automatiquement appliqué à vos éléménts.
 
 #### **3.4 Comment créer de nouveaux éléments ?**
 
@@ -155,7 +155,7 @@ body.appendChild(nouveauParagraphe);
 
 ```
 
-> `appendChild()` ajoute l'élément à la fin.D'autres fonctions existent comme `insertBefore()` qui vous permet de contrôler où l'élément sera placé, mais c'est des notions plus avancés.
+> `appendChild()` ajoute l'élément à la fin. D'autres fonctions existent comme `insertBefore()` qui vous permet de contrôler où l'élément sera placé, mais c'est des notions plus avancés. Dans tous les cas, vous retrouverez pleins d'exemples dans la doc Javascript !
 
 **Supprimer des éléments :**
 ```javascript

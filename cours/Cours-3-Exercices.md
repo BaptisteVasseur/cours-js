@@ -1,4 +1,4 @@
-## 🌐 **SÉANCE 3 - DOM API**
+## 🌐 **SÉANCE 3 - DOM API - Sélection, modification et événements**
 
 ### **Partie Pratique**
 

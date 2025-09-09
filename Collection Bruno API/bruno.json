@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "JS Fetch API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

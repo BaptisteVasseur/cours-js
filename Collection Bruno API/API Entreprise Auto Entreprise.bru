@@ -1,0 +1,43 @@
+meta {
+  name: API Entreprise Auto Entreprise
+  type: http
+  seq: 5
+}
+
+get {
+  url: https://recherche-entreprises.api.gouv.fr/search?q=Vasseur&minimal=true&include=siege%2Cmatching_etablissements&page=1&per_page=10
+  body: none
+  auth: none
+}
+
+params:query {
+  q: Vasseur
+  minimal: true
+  include: siege%2Cmatching_etablissements
+  page: 1
+  per_page: 10
+  ~activite_principale: 01.12Z%2C28.15Z
+  ~categorie_entreprise: PME
+  ~code_collectivite_territoriale: 75C
+  ~code_postal: 38540%2C38189
+  ~code_commune: 01247%2C01111
+  ~departement: 02%2C89
+  ~region: 11%2C76
+  ~epci: 200058519%2C248100737
+  ~id_convention_collective: 1090
+  ~id_finess: 010003853
+  ~id_rge: 8611M10D109
+  ~id_uai: 0022004T
+  ~nature_juridique: 7344%2C6544
+  ~section_activite_principale: A%2CJ%2CU
+  ~tranche_effectif_salarie: NN%2C00%2C01
+  ~nom_personne: Dupont
+  ~prenoms_personne: Monsieur
+  ~date_naissance_personne_min: 1960-01-01
+  ~date_naissance_personne_max: 1990-01-01
+  ~ca_min: 100000
+  ~ca_max: 100000
+  ~resultat_net_min: 100000
+  ~resultat_net_max: 100000
+  ~limite_matching_etablissements: 10
+}

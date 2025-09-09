@@ -1,0 +1,22 @@
+meta {
+  name: Films
+  type: http
+  seq: 8
+}
+
+get {
+  url: https://api.themoviedb.org/3/search/movie?query=Avatar&include_adult=false&language=fr-FR&page=1
+  body: none
+  auth: bearer
+}
+
+params:query {
+  query: Avatar
+  include_adult: false
+  language: fr-FR
+  page: 1
+}
+
+auth:bearer {
+  token:
+}

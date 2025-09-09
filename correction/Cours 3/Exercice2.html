@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur - Correction</title>
+    <style>
+        .calculateur {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultat {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .erreur {
+            color: #dc3545;
+        }
+        .succes {
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculateur">
+        <h2>Calculateur Simple</h2>
+        <input type="number" id="nombre1" placeholder="Premier nombre">
+        <input type="number" id="nombre2" placeholder="Deuxième nombre">
+        <br>
+        <button onclick="calculer('+')">+</button>
+        <button onclick="calculer('-')">-</button>
+        <button onclick="calculer('*')">×</button>
+        <button onclick="calculer('/')">÷</button>
+        <div id="resultat">Résultat : </div>
+    </div>
+    
+    <script>
+        function calculer(operation) {
+            // Récupérer les valeurs des champs
+            const valeur1 = document.getElementById('nombre1').value;
+            const valeur2 = document.getElementById('nombre2').value;
+            const elementResultat = document.getElementById('resultat');
+            
+            // Convertir en nombres
+            const nombre1 = parseFloat(valeur1);
+            const nombre2 = parseFloat(valeur2);
+            
+            // Vérifier que les valeurs sont valides
+            if (isNaN(nombre1) || isNaN(nombre2)) {
+                elementResultat.innerHTML = '<span class="erreur">Erreur : Veuillez entrer des nombres valides</span>';
+                return;
+            }
+            
+            let resultat;
+            let symboleOperation;
+            
+            // Effectuer le calcul selon l'opération
+            switch(operation) {
+                case '+':
+                    resultat = nombre1 + nombre2;
+                    symboleOperation = '+';
+                    break;
+                case '-':
+                    resultat = nombre1 - nombre2;
+                    symboleOperation = '-';
+                    break;
+                case '*':
+                    resultat = nombre1 * nombre2;
+                    symboleOperation = '×';
+                    break;
+                case '/':
+                    if (nombre2 === 0) {
+                        elementResultat.innerHTML = '<span class="erreur">Erreur : Division par zéro impossible</span>';
+                        return;
+                    }
+                    resultat = nombre1 / nombre2;
+                    symboleOperation = '÷';
+                    break;
+                default:
+                    elementResultat.innerHTML = '<span class="erreur">Erreur : Opération non reconnue</span>';
+                    return;
+            }
+            
+            // Afficher le résultat
+            elementResultat.innerHTML = `<span class="succes">Résultat : ${nombre1} ${symboleOperation} ${nombre2} = ${resultat}</span>`;
+        }
+    </script>
+</body>
+</html>

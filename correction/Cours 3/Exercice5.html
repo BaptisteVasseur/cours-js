@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de Thèmes - Correction</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f5f5f5;
+            --border-color: #dddddd;
+            --accent-color: #007bff;
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --border-color: #444444;
+            --accent-color: #4dabf7;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            padding: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .theme-transition {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 Système de Thèmes</h1>
+        <button class="theme-toggle" id="themeToggle">
+            <span id="themeIcon">🌙</span>
+            <span id="themeText">Mode Sombre</span>
+        </button>
+    </div>
+    
+    <div class="content">
+        <div class="card">
+            <div class="icon">📊</div>
+            <h3>Statistiques</h3>
+            <p>Voici vos statistiques du jour. Le thème s'adapte automatiquement à vos préférences.</p>
+        </div>
+        
+        <div class="card">
+            <div class="icon">⚙️</div>
+            <h3>Paramètres</h3>
+            <p>Personnalisez votre expérience en changeant de thème selon vos préférences.</p>
+        </div>
+        
+        <div class="card">
+            <div class="icon">📱</div>
+            <h3>Responsive</h3>
+            <p>Cette interface s'adapte à tous les écrans et tous les thèmes.</p>
+        </div>
+    </div>
+    
+    <script>
+        // Variables pour gérer l'état du thème
+        let themeSombre = false;
+        
+        // Sélection des éléments
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        const body = document.body;
+        
+        // Fonction pour changer le thème
+        function changerTheme() {
+            // Ajouter la classe de transition
+            body.classList.add('theme-transition');
+            
+            // Inverser l'état du thème
+            themeSombre = !themeSombre;
+            
+            if (themeSombre) {
+                // Appliquer le thème sombre
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Mode Clair';
+            } else {
+                // Appliquer le thème clair
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Mode Sombre';
+            }
+            
+            // Sauvegarder la préférence
+            localStorage.setItem('theme', themeSombre ? 'dark' : 'light');
+            
+            // Supprimer la classe de transition après l'animation
+            setTimeout(() => {
+                body.classList.remove('theme-transition');
+            }, 500);
+        }
+        
+        // Fonction pour charger le thème sauvegardé
+        function chargerTheme() {
+            const themeSauvegarde = localStorage.getItem('theme');
+            
+            if (themeSauvegarde === 'dark') {
+                themeSombre = true;
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Mode Clair';
+            } else {
+                themeSombre = false;
+                body.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Mode Sombre';
+            }
+        }
+        
+        // Ajouter l'événement de clic
+        themeToggle.addEventListener('click', changerTheme);
+        
+        // Charger le thème au chargement de la page
+        chargerTheme();
+        
+        // Bonus : Détection du thème système
+        if (!localStorage.getItem('theme')) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            if (mediaQuery.matches) {
+                themeSombre = true;
+                changerTheme();
+            }
+            
+            // Écouter les changements de préférence système
+            mediaQuery.addEventListener('change', function(e) {
+                if (!localStorage.getItem('theme')) {
+                    themeSombre = !e.matches;
+                    changerTheme();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

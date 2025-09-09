@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice DOM - Correction</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            transition: background-color 0.3s ease;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #resultat {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titre">Mon Titre</h1>
+    <p id="paragraphe">Ceci est un paragraphe</p>
+    <button id="bouton">Cliquez-moi</button>
+    <div id="resultat"></div>
+    
+    <script>
+        // Sélectionner les éléments
+        let titre = document.getElementById('titre');
+        let paragraphe = document.getElementById('paragraphe');
+        let bouton = document.getElementById('bouton');
+        let resultat = document.getElementById('resultat');
+        
+        // Modifier le contenu du titre
+        titre.textContent = "Mon Nouveau Titre";
+        
+        // Changer le texte du paragraphe avec du HTML
+        paragraphe.innerHTML = "Ce paragraphe a été <strong>modifié</strong>";
+        
+        // Ajouter un événement au bouton pour afficher l'heure
+        bouton.addEventListener('click', function() {
+            const maintenant = new Date();
+            const heureActuelle = maintenant.toLocaleTimeString();
+            resultat.innerHTML = `<strong>Heure actuelle :</strong> ${heureActuelle}`;
+        });
+        
+        // Ajouter/enlever la classe highlight au survol du titre
+        titre.addEventListener('mouseenter', function() {
+            titre.classList.add('highlight');
+        });
+        
+        titre.addEventListener('mouseleave', function() {
+            titre.classList.remove('highlight');
+        });
+    </script>
+</body>
+</html>

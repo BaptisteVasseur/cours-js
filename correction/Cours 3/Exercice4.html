@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Contact - Correction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        .error {
+            border-color: #ff4444 !important;
+        }
+        .success {
+            border-color: #44ff44 !important;
+        }
+        .error-message {
+            color: #ff4444;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        .success-message {
+            color: #44ff44;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #007bff;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .message-succes {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>📧 Formulaire de Contact</h1>
+    
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+    
+    <div id="messageSucces" class="message-succes">
+        Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+    </div>
+    
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="nom">Nom complet *</label>
+            <input type="text" id="nom" name="nom" required>
+            <div class="error-message" id="nomError">Le nom doit contenir au moins 2 caractères</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error-message" id="emailError">Veuillez entrer un email valide</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone">
+            <div class="error-message" id="telephoneError">Format : 06 12 34 56 78</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="sujet">Sujet *</label>
+            <select id="sujet" name="sujet" required>
+                <option value="">Choisissez un sujet</option>
+                <option value="question">Question générale</option>
+                <option value="support">Support technique</option>
+                <option value="partnership">Partenariat</option>
+                <option value="other">Autre</option>
+            </select>
+            <div class="error-message" id="sujetError">Veuillez sélectionner un sujet</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <div class="error-message" id="messageError">Le message doit contenir au moins 10 caractères</div>
+        </div>
+        
+        <button type="submit" id="submitBtn">Envoyer le message</button>
+    </form>
+    
+    <script>
+        // Sélection des éléments
+        const form = document.getElementById('contactForm');
+        const progressFill = document.getElementById('progressFill');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageSucces = document.getElementById('messageSucces');
+        
+        // Règles de validation
+        const validationRules = {
+            nom: {
+                required: true,
+                minLength: 2,
+                noNumbers: true
+            },
+            email: {
+                required: true,
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            },
+            telephone: {
+                required: false,
+                pattern: /^(\+33|0)[1-9](\d{8})$/
+            },
+            sujet: {
+                required: true
+            },
+            message: {
+                required: true,
+                minLength: 10
+            }
+        };
+        
+        // Fonction de validation d'un champ
+        function validerChamp(champ, valeur) {
+            const nomChamp = champ.name;
+            const rules = validationRules[nomChamp];
+            const errorElement = document.getElementById(nomChamp + 'Error');
+            let isValid = true;
+            
+            if (!rules) return true;
+            
+            // Vérification des champs obligatoires
+            if (rules.required && (!valeur || valeur.trim() === '')) {
+                isValid = false;
+            }
+            
+            // Vérification de la longueur minimale
+            if (rules.minLength && valeur && valeur.length < rules.minLength) {
+                isValid = false;
+            }
+            
+            // Vérification des motifs (regex)
+            if (rules.pattern && valeur && !rules.pattern.test(valeur)) {
+                isValid = false;
+            }
+            
+            // Vérification des chiffres dans le nom
+            if (rules.noNumbers && valeur && /\d/.test(valeur)) {
+                isValid = false;
+            }
+            
+            // Appliquer les styles
+            if (isValid) {
+                champ.classList.remove('error');
+                champ.classList.add('success');
+                errorElement.style.display = 'none';
+            } else {
+                champ.classList.remove('success');
+                champ.classList.add('error');
+                errorElement.style.display = 'block';
+            }
+            
+            return isValid;
+        }
+        
+        // Fonction de mise à jour de la progression
+        function mettreAJourProgression() {
+            const champs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            let champsValides = 0;
+            
+            champs.forEach(champ => {
+                if (validerChamp(champ, champ.value)) {
+                    champsValides++;
+                }
+            });
+            
+            const pourcentage = (champsValides / champs.length) * 100;
+            progressFill.style.width = pourcentage + '%';
+            
+            // Activer/désactiver le bouton
+            submitBtn.disabled = pourcentage < 100;
+        }
+        
+        // Événements de validation en temps réel
+        form.addEventListener('input', function(e) {
+            validerChamp(e.target, e.target.value);
+            mettreAJourProgression();
+        });
+        
+        form.addEventListener('change', function(e) {
+            validerChamp(e.target, e.target.value);
+            mettreAJourProgression();
+        });
+        
+        // Soumission du formulaire
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Valider tous les champs
+            const formData = new FormData(form);
+            let formulaireValide = true;
+            
+            for (let [name, value] of formData) {
+                const champ = form.querySelector(`[name="${name}"]`);
+                if (!validerChamp(champ, value)) {
+                    formulaireValide = false;
+                }
+            }
+            
+            if (formulaireValide) {
+                // Afficher le message de succès
+                messageSucces.style.display = 'block';
+                form.style.display = 'none';
+                
+                // Simuler un envoi
+                setTimeout(() => {
+                    form.reset();
+                    messageSucces.style.display = 'none';
+                    form.style.display = 'block';
+                    mettreAJourProgression();
+                    
+                    // Réinitialiser les styles
+                    form.querySelectorAll('input, select, textarea').forEach(champ => {
+                        champ.classList.remove('success', 'error');
+                    });
+                }, 3000);
+            }
+        });
+        
+        // Initialisation
+        mettreAJourProgression();
+    </script>
+</body>
+</html>

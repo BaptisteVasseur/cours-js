@@ -1,0 +1,71 @@
+meta {
+  name: Chat GPT
+  type: http
+  seq: 6
+}
+
+post {
+  url: https://api.openai.com/v1/chat/completions
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token:
+}
+
+body:json {
+  {
+      "model": "gpt-4o",
+      "messages": [
+          {
+              "role": "system",
+              "content": "Tu est une API utilisée par un site ecommerce de produits alimentaires / site de recette de cuisine. Tu est spécalisé dans la junk food, Tu est capable de générer des recettes de cuisine à partir d'ingrédients donnés. Tu est capable de répondre à des questions sur les recettes de cuisine. Tu est capable de donner des conseils sur la cuisine."
+          },
+          {
+              "role": "user",
+              "content": "Donne mois une liste de 5 recette possibles avec les ingrédients suivants, précise dans le titre si c'est une recette facile/intermidiaire/difficile : Fraise, Lait, Farine, Oeufs. Pour chaque recette tu dois me donner le title de la recette et sa duration approximative. J'aimerais que dans tes propositions de recettes, tu me donnes toujours une recette healthy, une recette rapide, une recette pour les enfants, une recette pour les adultes. Et un recette bien gourmande et calorique."
+          }
+      ],
+      "response_format": {
+          "type": "json_schema",
+          "json_schema": {
+              "name": "recipe",
+              "strict": true,
+              "schema": {
+                  "type": "object",
+                  "properties": {
+                      "recipes": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "title": {
+                                      "type": "string"
+                                  },
+                                  "duration": {
+                                      "type": "integer"
+                                  }
+                              },
+                              "required": [
+                                  "title",
+                                  "duration"
+                              ],
+                              "additionalProperties": false
+                          }
+                      }
+                  },
+                  "required": [
+                      "recipes"
+                  ],
+                  "additionalProperties": false
+              }
+          }
+      }
+  }
+}
+
+script:post-response {
+  const jsonResponse = JSON.parse(res.body.choices[0].message.content);
+  console.log(jsonResponse);
+}

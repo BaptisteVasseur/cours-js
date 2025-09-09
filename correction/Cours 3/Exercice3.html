@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Tâches - Correction</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 600px; 
+            margin: 50px auto; 
+            padding: 20px;
+        }
+        .task { 
+            padding: 15px; 
+            margin: 10px 0; 
+            border: 1px solid #ddd; 
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .task.completed { 
+            background-color: #e8f5e8; 
+            text-decoration: line-through; 
+            opacity: 0.7;
+        }
+        .task button { 
+            margin-left: 10px; 
+            padding: 8px 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        .delete-btn { background-color: #ff4444; color: white; }
+        .complete-btn { background-color: #44ff44; color: white; }
+        #taskInput { 
+            width: 70%; 
+            padding: 12px; 
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #addBtn { 
+            width: 25%; 
+            padding: 12px; 
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .stats {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 Gestionnaire de Tâches</h1>
+    
+    <div>
+        <input type="text" id="taskInput" placeholder="Entrez une nouvelle tâche...">
+        <button id="addBtn">Ajouter</button>
+    </div>
+    
+    <div id="taskList"></div>
+    
+    <div class="stats">
+        <p>📊 <strong>Statistiques :</strong></p>
+        <p>Total: <span id="totalTasks">0</span> tâches</p>
+        <p>Complétées: <span id="completedTasks">0</span></p>
+        <p>Restantes: <span id="remainingTasks">0</span></p>
+    </div>
+    
+    <script>
+        // Variables globales
+        let tasks = [];
+        let taskId = 1;
+        
+        // Sélection des éléments DOM
+        const taskInput = document.getElementById('taskInput');
+        const addBtn = document.getElementById('addBtn');
+        const taskList = document.getElementById('taskList');
+        const totalTasks = document.getElementById('totalTasks');
+        const completedTasks = document.getElementById('completedTasks');
+        const remainingTasks = document.getElementById('remainingTasks');
+        
+        // Événements
+        addBtn.addEventListener('click', ajouterTache);
+        taskInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                ajouterTache();
+            }
+        });
+        
+        // Fonction pour ajouter une tâche
+        function ajouterTache() {
+            const texte = taskInput.value.trim();
+            
+            if (texte === '') {
+                alert('Veuillez entrer une tâche !');
+                return;
+            }
+            
+            const nouvelleTache = {
+                id: taskId++,
+                texte: texte,
+                terminee: false,
+                date: new Date().toLocaleString()
+            };
+            
+            tasks.push(nouvelleTache);
+            taskInput.value = '';
+            afficherTaches();
+            mettreAJourStatistiques();
+        }
+        
+        // Fonction pour afficher les tâches
+        function afficherTaches() {
+            taskList.innerHTML = '';
+            
+            tasks.forEach(task => {
+                const taskElement = document.createElement('div');
+                taskElement.className = `task ${task.terminee ? 'completed' : ''}`;
+                
+                taskElement.innerHTML = `
+                    <div>
+                        <strong>${task.texte}</strong>
+                        <br><small>Créée le : ${task.date}</small>
+                    </div>
+                    <div>
+                        <button class="complete-btn" onclick="toggleComplete(${task.id})">
+                            ${task.terminee ? 'Annuler' : 'Terminé'}
+                        </button>
+                        <button class="delete-btn" onclick="supprimerTache(${task.id})">
+                            Supprimer
+                        </button>
+                    </div>
+                `;
+                
+                taskList.appendChild(taskElement);
+            });
+        }
+        
+        // Fonction pour basculer l'état d'une tâche
+        function toggleComplete(id) {
+            const task = tasks.find(t => t.id === id);
+            if (task) {
+                task.terminee = !task.terminee;
+                afficherTaches();
+                mettreAJourStatistiques();
+            }
+        }
+        
+        // Fonction pour supprimer une tâche
+        function supprimerTache(id) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette tâche ?')) {
+                tasks = tasks.filter(t => t.id !== id);
+                afficherTaches();
+                mettreAJourStatistiques();
+            }
+        }
+        
+        // Fonction pour mettre à jour les statistiques
+        function mettreAJourStatistiques() {
+            const total = tasks.length;
+            const completes = tasks.filter(t => t.terminee).length;
+            const restantes = total - completes;
+            
+            totalTasks.textContent = total;
+            completedTasks.textContent = completes;
+            remainingTasks.textContent = restantes;
+        }
+        
+        // Initialisation
+        mettreAJourStatistiques();
+    </script>
+</body>
+</html>

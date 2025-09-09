@@ -1,0 +1,17 @@
+meta {
+  name: M-t-o
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://api.open-meteo.com/v1/forecast?latitude=48.8534&longitude=2.3488&current=temperature_2m,relative_humidity_2m,precipitation,rain,surface_pressure
+  body: none
+  auth: none
+}
+
+params:query {
+  latitude: 48.8534
+  longitude: 2.3488
+  current: temperature_2m,relative_humidity_2m,precipitation,rain,surface_pressure
+}

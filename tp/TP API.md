@@ -233,11 +233,13 @@ function showDetails(itemId) {
 - **CSS Grid Generator** : Pour les layouts
 - **Color Hunt** : Palettes de couleurs
 
-## 📝 Livrables
+## 📝 Livrables / Rendus
 
 - **Fichiers sources** : HTML, CSS, JS complets
 - **Démonstration** : Application fonctionnelle
 - **Documentation Bruno** : Collection des tests API
+
+> **Faire le rendu sur ce lien : https://forms.gle/tmYtY9ngW6R93QNE7**
 
 ---
 

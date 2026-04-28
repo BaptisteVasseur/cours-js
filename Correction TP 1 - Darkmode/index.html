@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon site</title>
+    <link rel="stylesheet" href="app.css" />
+
+    <!-- Ne pas oublier le defer pour que le script s'exécute après le chargement du HTML. -->
+    <!-- Sinon le script va essayer d'accéder au DOM trop tôt et ça va planter. -->
+    <!-- Vous pouvez aussi utiliser async, mais c'est moins fiable. -->
+    <script src="app.js" defer></script>
+  </head>
+  <!-- Si vous voulez que le dark mode soit actif par défaut, vous pouvez ajouter la classe "darkmode" au body. -->
+  <body class="">
+    <h1>Mon site</h1>
+    <h2>Démo dark mode</h2>
+    <p>Clique sur le bouton pour basculer entre le thème clair et le thème sombre.</p>
+    <button type="button" class="button" id="btn-darkmode">Activer le dark mode</button>
+  </body>
+</html>

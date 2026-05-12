@@ -1,0 +1,159 @@
+*,
+*::before,
+*::after {
+  /* Garde une gestion previsible des tailles/paddings sur tous les elements. */
+  box-sizing: border-box;
+}
+
+body {
+  /* Styles globaux de page (fond, typo, espacements). */
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 1.5rem;
+  max-width: 40rem;
+  background: #0f172a;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+h1 {
+  /* Titre principal. */
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  /* Sous-titres des sections. */
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.ajout-media {
+  /* Bloc visuel du formulaire d'ajout. */
+  background: #1e293b;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+}
+
+.champs-ajout {
+  /* Place les champs et le bouton sur une meme ligne quand possible,
+     puis passe a la ligne suivante si l'ecran est trop petit. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.champ-groupe {
+  /* Chaque champ est un mini container vertical: label au-dessus, champ en-dessous. */
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 10rem;
+}
+
+.champ-groupe label {
+  /* Label secondaire: plus petit et plus discret. */
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.champ-titre,
+.champ-categorie {
+  /* Apparence des champs de saisie. */
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.35rem;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+.btn-ajouter,
+.btn-retirer {
+  /* Base commune pour les boutons. */
+  font: inherit;
+  cursor: pointer;
+  border-radius: 0.35rem;
+  border: none;
+  padding: 0.5rem 0.85rem;
+}
+
+.btn-ajouter {
+  /* Bouton principal d'action (ajout). */
+  background: #22c55e;
+  color: #052e16;
+}
+
+.btn-ajouter:hover,
+.btn-ajouter:focus-visible {
+  background: #4ade80;
+  outline: 2px solid #bbf7d0;
+  outline-offset: 2px;
+}
+
+.btn-retirer {
+  /* Bouton secondaire sur chaque ligne (suppression locale). */
+  margin-left: auto;
+  background: #334155;
+  color: #f8fafc;
+}
+
+.btn-retirer:hover,
+.btn-retirer:focus-visible {
+  background: #475569;
+  outline: 2px solid #94a3b8;
+  outline-offset: 2px;
+}
+
+.liste-medias {
+  /* Liste sans puces, organisee en colonne. */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.media-item {
+  /* Carte d'un media dans la liste. */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.35rem;
+  background: #1e293b;
+  border-left: 6px solid #64748b;
+}
+
+.media-item[data-categorie='film'] {
+  /* Couleur dynamique selon la categorie "film". */
+  border-left-color: #3b82f6;
+}
+
+.media-item[data-categorie='serie'] {
+  /* Couleur dynamique selon la categorie "serie". */
+  border-left-color: #a855f7;
+}
+
+.media-item[data-categorie='documentaire'] {
+  /* Couleur dynamique selon la categorie "documentaire". */
+  border-left-color: #eab308;
+}
+
+.media-item[data-categorie='animation'] {
+  /* Couleur dynamique selon la categorie "animation". */
+  border-left-color: #f97316;
+}
+
+.titre-aff {
+  /* Le titre doit ressortir visuellement. */
+  font-weight: 600;
+}
+
+.cat-aff {
+  /* La categorie est informative, donc style plus discret. */
+  color: #94a3b8;
+  font-size: 0.9rem;
+}

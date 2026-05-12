@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 1.5rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 1rem;
+}
+
+.toolbar {
+  margin-bottom: 1.25rem;
+}
+
+.btn-nouveau {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(135deg, #22d3ee, #a78bfa);
+  color: #020617;
+  font-weight: 600;
+}
+
+.btn-nouveau:hover {
+  filter: brightness(1.08);
+}
+
+.liste-compteurs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.compteur {
+  flex: 1 1 220px;
+  max-width: 280px;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #1e293b;
+  border: 2px solid #334155;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.compteur:focus-visible {
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.45);
+}
+
+.compteur.actif {
+  border-color: #22d3ee;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
+}
+
+.compteur-head {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.valeur {
+  display: inline-block;
+  min-width: 3.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.palier-bas {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.palier-mid {
+  background: #1d4ed8;
+  color: #eff6ff;
+}
+
+.palier-haut {
+  background: #15803d;
+  color: #f0fdf4;
+}
+
+.compteur-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.compteur-actions button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.4rem;
+  border: 1px solid #475569;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.compteur-actions button:hover {
+  background: #334155;
+}
+
+.btn-plus {
+  font-weight: 700;
+}
+
+.btn-moins {
+  font-weight: 700;
+}
+
+.btn-supprimer {
+  border-color: #991b1b !important;
+  color: #fecaca !important;
+}
+
+.btn-supprimer:hover {
+  background: #7f1d1d !important;
+}

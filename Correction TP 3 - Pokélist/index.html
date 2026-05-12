@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokelist - corrige</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Titre principal de la page. -->
+    <h1>Pokelist avec Tyradex</h1>
+
+    <!-- Zone de controle :
+         l'utilisateur choisit une generation puis clique sur "Charger". -->
+    <section class="toolbar">
+      <label for="champ-generation">Generation</label>
+      <select id="champ-generation">
+        <option value="1">Generation 1</option>
+        <option value="2">Generation 2</option>
+        <option value="3">Generation 3</option>
+        <option value="4">Generation 4</option>
+        <option value="5">Generation 5</option>
+        <option value="6">Generation 6</option>
+        <option value="7">Generation 7</option>
+        <option value="8">Generation 8</option>
+        <option value="9">Generation 9</option>
+      </select>
+      <button type="button" id="btn-rafraichir">Charger</button>
+    </section>
+
+    <!-- Message d'etat : chargement, succes, etc. -->
+    <p id="zone-statut" class="statut" role="status">Chargement en cours...</p>
+
+    <!-- Message d'erreur affiche seulement si la requete echoue. -->
+    <p id="zone-erreur" class="erreur" role="alert" hidden></p>
+
+    <!-- Zone ou JavaScript ajoute toutes les cartes Pokemon. -->
+    <main id="liste-pokemon" class="grille-pokemon" aria-live="polite"></main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Compteurs</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <h1>Compteurs</h1>
+
+    <!-- Petit container pour regrouper les actions "globales" de la page.
+         Ici on n'a qu'un bouton, mais cette zone peut evoluer (filtres, reset global, etc.). -->
+    <div class="toolbar">
+      <!-- Ici on utilise un id car ce bouton est unique sur la page
+           et JavaScript doit le retrouver facilement. -->
+      <button type="button" id="btn-nouveau" class="btn-nouveau">Nouveau compteur</button>
+    </div>
+
+    <!-- Ce container contient tous les compteurs.
+         On lui met un id car il est unique et sert de point d'insertion
+         quand on ajoute un nouveau compteur en JavaScript. -->
+    <div id="liste-compteurs" class="liste-compteurs">
+      <!-- Un compteur = un bloc autonome.
+           Pas d'id ici: il peut y avoir plusieurs compteurs.
+           On utilise donc des classes reutilisables (.compteur, .valeur, .btn-plus, etc.). -->
+      <article class="compteur" tabindex="0">
+        <div class="compteur-head">
+          <!-- Classe dynamique pour la couleur de la valeur:
+               - palier-bas (0 a 9)
+               - palier-mid (10 a 20)
+               - palier-haut (21 et plus)
+               JavaScript remplace ces classes selon la valeur. -->
+          <span class="valeur palier-bas">0</span>
+        </div>
+        <!-- Zone des actions locales au compteur.
+             Chaque bouton utilise une classe (pas un id) car ce schema est repete
+             sur tous les compteurs. -->
+        <div class="compteur-actions">
+          <button type="button" class="btn-moins" aria-label="Moins">−</button>
+          <button type="button" class="btn-plus" aria-label="Plus">+</button>
+          <button type="button" class="btn-reset">Remise à zéro</button>
+          <button type="button" class="btn-supprimer">Supprimer</button>
+        </div>
+      </article>
+
+      <!-- Meme logique pour les autres compteurs: pas d'id, uniquement des classes. -->
+      <article class="compteur" tabindex="0">
+        <div class="compteur-head">
+          <!-- Meme classe dynamique de couleur geree en JavaScript. -->
+          <span class="valeur palier-bas">0</span>
+        </div>
+        <div class="compteur-actions">
+          <button type="button" class="btn-moins" aria-label="Moins">−</button>
+          <button type="button" class="btn-plus" aria-label="Plus">+</button>
+          <button type="button" class="btn-reset">Remise à zéro</button>
+          <button type="button" class="btn-supprimer">Supprimer</button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Autre classe dynamique utile a connaitre:
+         .actif est ajoutee/retiree par JavaScript sur .compteur
+         pour montrer visuellement quel compteur est selectionne pour l'intéraction avec la clavier -->
+  </body>
+</html>

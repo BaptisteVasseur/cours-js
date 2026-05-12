@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Watchlist — corrigé</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Films & séries à regarder</h1>
+
+    <!-- Bloc "formulaire" pour ajouter un nouveau media. -->
+    <section class="ajout-media">
+      <h2>Ajouter un média</h2>
+      <!-- Container des champs:
+           il aide a garder une structure claire et facilite la mise en page en CSS. -->
+      <div class="champs-ajout">
+        <!-- Groupe titre: label + input.
+             On met un id sur l'input car cet element est unique
+             et JavaScript doit le retrouver facilement. -->
+        <div class="champ-groupe">
+          <label for="champ-titre">Titre</label>
+          <input
+            type="text"
+            id="champ-titre"
+            class="champ-titre"
+            placeholder="Ex. Dune, Arcane…"
+            autocomplete="off"
+          />
+        </div>
+        <!-- Groupe categorie: meme idee, element unique -> id. -->
+        <div class="champ-groupe">
+          <label for="champ-categorie">Catégorie</label>
+          <select id="champ-categorie" class="champ-categorie">
+            <option value="film">Film</option>
+            <option value="serie">Série</option>
+            <option value="documentaire">Documentaire</option>
+            <option value="animation">Animation</option>
+          </select>
+        </div>
+        <!-- Ici on utilise une classe (pas un id) car le style est prioritaire
+             et le code JS peut le selectionner facilement. -->
+        <button type="button" class="btn-ajouter">Ajouter à la liste</button>
+      </div>
+    </section>
+
+    <h2>Ma liste</h2>
+    <!-- Liste principale de medias.
+         On lui met un id unique car JavaScript ajoute de nouvelles lignes dedans. -->
+    <ul id="liste-medias" class="liste-medias">
+      <!-- Une ligne de media.
+           Pas d'id ici, car il y aura plusieurs lignes dans la liste.
+           On utilise des classes reutilisables. -->
+      <li class="media-item" data-categorie="film">
+        <!-- data-categorie est dynamique pour le style:
+             le CSS lit cette valeur pour choisir la couleur du bord gauche.
+             Exemples: film, serie, documentaire, animation. -->
+        <span class="titre-aff">Inception</span> — <span class="cat-aff">Film</span>
+        <!-- Bouton local a la ligne, meme classe repetee sur toutes les lignes. -->
+        <button type="button" class="btn-retirer">Retirer</button>
+      </li>
+      <li class="media-item" data-categorie="serie">
+        <!-- Meme logique de style dynamique via data-categorie. -->
+        <span class="titre-aff">Arcane</span> — <span class="cat-aff">Série</span>
+        <button type="button" class="btn-retirer">Retirer</button>
+      </li>
+    </ul>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

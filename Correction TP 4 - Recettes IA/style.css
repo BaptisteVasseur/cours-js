@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+h1 {
+  margin: 0 0 20px;
+}
+
+.panel {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ligne-ajout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+
+.ligne-ajout label {
+  font-weight: 700;
+}
+
+.ligne-ajout input,
+.ligne-ajout button,
+.btn-principal,
+.btn-secondaire,
+.btn-retirer {
+  font: inherit;
+  border-radius: 10px;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+}
+
+.ligne-ajout input {
+  min-width: 220px;
+}
+
+.ligne-ajout button,
+.btn-principal,
+.btn-secondaire,
+.btn-retirer {
+  cursor: pointer;
+}
+
+.btn-principal {
+  margin-top: 16px;
+  background: #0f766e;
+  color: #ffffff;
+  border-color: #0f766e;
+}
+
+.btn-secondaire,
+.btn-retirer {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.btn-principal:disabled,
+.btn-secondaire:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.statut,
+.erreur {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.erreur {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.liste-ingredients,
+.liste-historique {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.ligne-ingredient,
+.carte-historique {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.liste-ingredients,
+.liste-historique {
+  display: grid;
+  gap: 10px;
+}
+
+.ingredient-nom {
+  font-weight: 700;
+}
+
+.zone-recette {
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #dbeafe;
+  padding: 16px;
+}
+
+.recette-vide {
+  color: #475569;
+}
+
+.zone-recette h3,
+.carte-historique h3 {
+  margin-top: 0;
+}
+
+.contenu-recette,
+.resume-recette {
+  margin: 0;
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.carte-historique {
+  flex-direction: column;
+}
+
+.meta-historique {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.tags-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #ccfbf1;
+  color: #115e59;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.etat-vide {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #475569;
+  border: 1px dashed #cbd5e1;
+}
+
+@media (max-width: 760px) {
+  .ligne-ajout {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ligne-ajout input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .panel-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

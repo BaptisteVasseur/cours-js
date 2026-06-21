@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recettes IA - corrige</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Titre principal de la page. -->
+    <h1>Recettes IA</h1>
+
+    <!-- Zone pour ajouter des ingredients. -->
+    <section class="panel">
+      <h2>Mes ingredients</h2>
+
+      <div class="ligne-ajout">
+        <label for="champ-ingredient">Ingredient</label>
+        <input
+          type="text"
+          id="champ-ingredient"
+          placeholder="Ex. tomate, riz, oeuf"
+          autocomplete="off"
+        />
+        <button type="button" id="btn-ajouter">Ajouter</button>
+      </div>
+
+      <!-- Liste remplie par JavaScript. -->
+      <ul id="liste-ingredients" class="liste-ingredients"></ul>
+
+      <button type="button" id="btn-generer" class="btn-principal" disabled>
+        Proposer une recette
+      </button>
+
+      <p id="zone-statut" class="statut" role="status">
+        Ajoute au moins un ingredient pour commencer.
+      </p>
+      <p id="zone-erreur" class="erreur" role="alert" hidden></p>
+    </section>
+
+    <!-- Zone ou s'affiche la recette generee. -->
+    <section class="panel">
+      <h2>Recette proposee</h2>
+      <article id="zone-recette" class="zone-recette recette-vide">
+        Aucune recette pour le moment.
+      </article>
+    </section>
+
+    <!-- Historique sauvegarde dans localStorage. -->
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Historique local</h2>
+        <button type="button" id="btn-vider-historique" class="btn-secondaire">
+          Vider
+        </button>
+      </div>
+      <ul id="liste-historique" class="liste-historique"></ul>
+    </section>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
